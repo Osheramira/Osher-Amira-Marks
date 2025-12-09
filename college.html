@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College - Osher Amira-Marks</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['Merriweather', 'serif'] },
+                    colors: { primary: '#4f46e5', secondary: '#facc15', background: '#f9fafb' }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-background text-gray-800 font-sans min-h-screen flex flex-col">
+
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-primary tracking-tight">Osher Amira-Marks</a>
+                </div>
+                <div class="flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-500 hover:text-primary transition font-medium">Home</a>
+                    <a href="college.html" class="text-primary font-bold border-b-2 border-primary">College</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
+        <div class="mb-12">
+            <h1 class="text-4xl font-extrabold text-gray-900 mb-4">Academic Coursework</h1>
+            <p class="text-lg text-gray-600">A collection of my work, portfolios, and projects from my college studies.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <a href="english-portfolio.html" class="group block">
+                <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden transform transition duration-300 hover:-translate-y-2 hover:shadow-2xl h-full flex flex-col">
+                    <div class="h-2 bg-primary w-full"></div>
+                    <div class="p-8 flex-grow">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-blue-100 text-primary text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">English</span>
+                            <i data-lucide="book-open" class="text-gray-400 group-hover:text-primary transition"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2 group-hover:text-primary transition">Academic Reading & Writing</h3>
+                        <p class="text-gray-600 mb-4">
+                            My complete portfolio including essays on Positive Psychology, systemic inequality (Wes Moore), and reflective writing.
+                        </p>
+                    </div>
+                    <div class="p-6 bg-gray-50 border-t border-gray-100 group-hover:bg-indigo-50 transition">
+                        <span class="text-primary font-semibold flex items-center">
+                            View Portfolio <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
+                        </span>
+                    </div>
+                </div>
+            </a>
+
+            <div class="bg-gray-50 rounded-xl border-2 border-dashed border-gray-300 p-8 flex flex-col items-center justify-center text-center opacity-70">
+                <div class="bg-white p-4 rounded-full shadow-sm mb-4">
+                    <i data-lucide="plus" class="w-8 h-8 text-gray-400"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-400">Future Course</h3>
+                <p class="text-sm text-gray-400 mt-2">More academic work coming soon.</p>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="bg-white border-t border-gray-200 py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-gray-500">&copy; 2025 Osher Amira-Marks.</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

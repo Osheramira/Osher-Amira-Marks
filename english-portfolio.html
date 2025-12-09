@@ -1,0 +1,2204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Reading and Writing-Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['Merriweather', 'serif'] },
+                    colors: { primary: '#4f46e5', secondary: '#facc15', background: '#f9fafb', 'card-bg': '#ffffff', 'text-dark': '#1f2937' }
+                }
+            }
+        }
+    </script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Merriweather:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        main {
+            flex-grow: 1;
+        }
+
+        body::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        body::-webkit-scrollbar-track {
+            background: #f9fafb;
+        }
+
+        body::-webkit-scrollbar-thumb {
+            background-color: #a5b4fc;
+            border-radius: 20px;
+            border: 2px solid #f9fafb;
+        }
+
+        .page-content {
+            display: none;
+        }
+
+        .tab-btn {
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn.active {
+            border-bottom: 2px solid #4f46e5;
+            color: #4f46e5;
+            font-weight: 600;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .stage-connector {
+            position: relative;
+        }
+
+        .stage-connector::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -2rem;
+            width: 1.5rem;
+            height: 2px;
+            background-color: #a5b4fc;
+            z-index: 0;
+            transform: translateY(-50%);
+        }
+
+        @media (min-width: 768px) {
+            .md\:stage-last::after {
+                content: none;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .stage-connector::after {
+                content: none;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(5px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-background text-text-dark font-sans leading-relaxed">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-2">
+                    <i data-lucide="book-open-text" class="text-primary w-6 h-6"></i>
+                    <span class="text-2xl font-bold text-primary cursor-pointer" onclick="showPage('home')">Academic
+                        Reading and Writing-Portfolio</span>
+                </div>
+                <nav class="flex space-x-4 sm:space-x-8">
+                    <a href="index.html"
+                        class="text-gray-600 hover:text-primary transition duration-200 font-medium cursor-pointer">Home</a>
+
+                    <a href="#annotations" onclick="showPage('annotations')"
+                        class="text-gray-600 hover:text-primary transition duration-200 font-medium cursor-pointer">Annotations
+                        & Documents</a>
+
+                    <a href="#GoogleDocs" onclick="showPage('GoogleDocs')"
+                        class="text-gray-600 hover:text-primary transition duration-200 font-medium cursor-pointer">Google
+                        Docs</a>
+
+                    <a href="#projects"
+                        onclick="showPage('home'); setTimeout(() => document.getElementById('projects').scrollIntoView(), 100)"
+                        class="text-gray-600 hover:text-primary transition duration-200 font-medium md:hidden cursor-pointer">Projects</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
+        <!-- HOME PAGE -->
+        <div id="home-page" class="page-content space-y-20">
+            <section id="hero" class="pt-10">
+                <div
+                    class="grid grid-cols-1 md:grid-cols-3 gap-10 items-center bg-card-bg p-8 rounded-xl shadow-2xl border border-indigo-100">
+                    <div class="md:col-span-1 flex justify-center">
+                        <img src="oa.png" onerror="this.src='https://placehold.co/200x200/4f46e5/ffffff?text=Osher+A-M'"
+                            alt="Osher Amira-Marks"
+                            class="w-48 h-48 object-cover rounded-full shadow-lg border-4 border-secondary transition transform hover:scale-105 duration-300">
+                    </div>
+                    <div class="md:col-span-2 text-center md:text-left">
+                        <p class="text-sm font-semibold text-primary uppercase tracking-wider mb-2">Student</p>
+                        <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-4 leading-tight">Osher
+                            Amira-Marks</h1>
+                        <p class="text-lg text-gray-600 mb-6"> Welcome to my digital Academic Reading and Writing
+                            Portfolio! <br> This collection showcases my
+                            development as a reader, writer, and critical thinker throughout the semester. Here you'll
+                            find selected essays, drafts and revisions, peer reviews, and reflection about the process I
+                            went through during this semester.</p>
+                        <a href="#about" onclick="showPage('about')"
+                            class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-lg shadow-md text-white bg-primary hover:bg-indigo-700 transition duration-300 cursor-pointer">Learn
+                            More About Me</a>
+                    </div>
+                </div>
+            </section>
+
+            <section id="projects" class="py-10">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl">My Academic Essays</h2>
+                    <p class="mt-4 text-xl text-gray-600">Click to read the full essay, drafts, and reflections.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-card-bg rounded-xl shadow-xl hover:shadow-2xl transition duration-300 border border-gray-100 group cursor-pointer"
+                        onclick="showPage('essay1')">
+                        <div class="p-6">
+                            <i data-lucide="notebook-pen" class="text-secondary w-8 h-8 mb-4"></i>
+                            <h3
+                                class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-primary transition duration-300">
+                                Understanding Happiness: A Personal Exploration Through Positive Psychology (Essay 1)
+                            </h3>
+                            <p class="text-gray-600 mb-6 line-clamp-3">Using the PERMA model, I explore happiness as an
+                                active practice rooted in purpose and
+                                connection.</p>
+                            <span class="inline-flex items-center text-primary font-medium hover:underline">View Process
+                                & Final Essay <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i></span>
+                        </div>
+                    </div>
+                    <div class="bg-card-bg rounded-xl shadow-xl hover:shadow-2xl transition duration-300 border border-gray-100 group cursor-pointer"
+                        onclick="showPage('essay2')">
+                        <div class="p-6">
+                            <i data-lucide="notebook-pen" class="text-secondary w-8 h-8 mb-4"></i>
+                            <h3
+                                class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-primary transition duration-300">
+                                Research Topic: Integrated Support Systems- school & therapy & vocational training
+                                (Essay 4)</h3>
+                            <p class="text-gray-500 text-sm mb-4">Analyzing the divergent paths in The Other Wes Moore,
+                                this essay argues that systemic barriers shaped the "other" Wes’s life more than
+                                individual choices, highlighting the urgent need for integrated support systems to
+                                create real opportunity.</p>
+                            <span class="inline-flex items-center text-primary font-medium hover:underline">View Process
+                                & Final Essay <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i></span>
+                        </div>
+                    </div>
+                    <div class="bg-card-bg rounded-xl shadow-xl hover:shadow-2xl transition duration-300 border border-gray-100 group cursor-pointer"
+                        onclick="showPage('essay3')">
+                        <div class="p-6">
+                            <i data-lucide="notebook-pen" class="text-secondary w-8 h-8 mb-4"></i>
+                            <h3
+                                class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-primary transition duration-300">
+                                Introductory Reflective Essay (Final)</h3>
+                            <p class="text-gray-500 text-sm mb-4">Tracing My Growth as a Reader, Writer, and Thinker</p>
+                            <span class="inline-flex items-center text-primary font-medium hover:underline">View Process
+                                & Final Essay <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Making the entire Growth Section a clickable link -->
+            <a href="growth.html"
+                class="block group no-underline transition transform hover:scale-[1.01] hover:shadow-xl duration-300">
+                <section id="growth"
+                    class="py-12 bg-indigo-50 p-12 rounded-xl shadow-inner border border-indigo-200 w-full relative">
+
+                    <!-- Hover Overlay (Optional but nice) -->
+                    <div
+                        class="absolute inset-0 bg-primary opacity-0 group-hover:opacity-5 transition duration-300 pointer-events-none rounded-xl">
+                    </div>
+
+                    <div class="text-center mb-12 relative z-10">
+                        <div class="inline-flex items-center justify-center gap-3">
+                            <h2 class="text-4xl font-bold text-gray-900 group-hover:text-primary transition-colors">My
+                                Growth Journey</h2>
+                        </div>
+                        <p class="mt-4 text-xl text-gray-600">The stages of intellectual and personal development.
+                            (Click to view full details)</p>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row justify-center items-stretch gap-10 relative z-10">
+
+                        <!-- Box 1 -->
+                        <div class="stage-connector md:stage-first flex-1">
+                            <div
+                                class="text-center p-6 bg-white rounded-lg shadow-xl border-2 border-primary h-full flex flex-col justify-center group-hover:border-indigo-600 transition">
+                                <p class="font-bold text-xl text-primary mb-2">Critical Engagement</p>
+                            </div>
+                        </div>
+
+                        <!-- Box 2 -->
+                        <div class="stage-connector md:stage-second flex-1">
+                            <div
+                                class="text-center p-6 bg-white rounded-lg shadow-xl border-2 border-primary h-full flex flex-col justify-center group-hover:border-indigo-600 transition">
+                                <p class="font-bold text-xl text-primary mb-2">Voice Development</p>
+                            </div>
+                        </div>
+
+                        <!-- Box 3 -->
+                        <div class="stage-connector md:stage-third flex-1">
+                            <div
+                                class="text-center p-6 bg-white rounded-lg shadow-xl border-2 border-primary h-full flex flex-col justify-center group-hover:border-indigo-600 transition">
+                                <p class="font-bold text-xl text-primary mb-2">Intellectual Humility</p>
+                            </div>
+                        </div>
+
+                        <!-- Box 4 -->
+                        <div class="stage-connector md:stage-last flex-1">
+                            <div
+                                class="text-center p-6 bg-white rounded-lg shadow-xl border-2 border-primary h-full flex flex-col justify-center group-hover:border-indigo-600 transition">
+                                <p class="font-bold text-xl text-primary mb-2">Self-Efficacy</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </a>
+        </div>
+
+        <!-- ABOUT ME PAGE -->
+        <div id="about-page" class="page-content pt-10">
+            <div class="bg-card-bg p-8 rounded-xl shadow-2xl border border-indigo-100 max-w-4xl mx-auto">
+                <div class="flex items-center mb-6 border-b pb-4"><i data-lucide="user-square"
+                        class="text-primary w-8 h-8 mr-3"></i>
+                    <h2 class="text-3xl font-bold text-gray-900">About Osher Amira-Marks</h2>
+                </div>
+                <p class="text-lg text-gray-700 mb-6">My name is Osher Amira-Marks, and I am 27 years old. I moved to
+                    the United States almost two years ago to pursue new opportunities. Born and raised in Israel, I am
+                    the eldest of five children- two sisters and two brothers. Family is central to my life, a sentiment
+                    that now extends to my energetic 15-month-old puppy, who keeps me grounded and smiling every day.
+                </p>
+                <h3 class="text-xl font-semibold text-gray-800 mb-3 flex items-center"><i data-lucide="gavel"
+                        class="w-5 h-5 mr-2 text-secondary"></i> My Professional Journey</h3>
+                <p class="text-lg text-gray-700 mb-6">My aspiration to become a lawyer is built on real-world
+                    experience. Before my academic journey here, I served in the Israel Defense Forces (IDF) as a
+                    criminal investigator. That role required rigorous critical thinking and a deep commitment to
+                    justice- qualities I am now refining in the classroom. I view the study of English and composition
+                    as essential training for the analytical and rhetorical demands of the legal field.</p>
+                <h3 class="text-xl font-semibold text-gray-800 mb-3 flex items-center"><i data-lucide="gavel"
+                        class="w-5 h-5 mr-2 text-secondary"></i>Cultural Perspective</h3>
+                <p class="text-lg text-gray-700 mb-6">My background as an immigrant gives me a unique cultural lens
+                    through which I view literature and society. This perspective allows me to engage with complex
+                    topics and narratives from a fresh viewpoint, which I believe strengthens my critical analysis in
+                    all my academic pursuits.</p>
+                <div class="mt-8 text-center"><a href="#home" onclick="showPage('home')"
+                        class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-lg shadow-md text-white bg-secondary hover:bg-amber-500 transition duration-300 cursor-pointer"><i
+                            data-lucide="home" class="w-4 h-4 mr-2"></i> Back to Portfolio Home</a></div>
+            </div>
+        </div>
+
+
+        <!-- ANNOTATIONS PAGE CONTENT -->
+        <div id="annotations-page" class="page-content pt-10">
+            <div class="bg-card-bg p-8 rounded-xl shadow-2xl border border-indigo-100 max-w-12xl mx-auto">
+                <!-- Page Header -->
+                <div class="flex items-center justify-between mb-8 border-b border-gray-100 pb-6">
+                    <div class="flex items-center">
+                        <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                            <i data-lucide="highlighter" class="text-primary w-8 h-8"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-3xl font-bold text-gray-900">Annotations & Documents</h2>
+                            <p class="text-gray-500">Annotated Texts and Visual Analysis Tools
+                            </p>
+                        </div>
+                    </div>
+                    <button onclick="showPage('home')"
+                        class="text-gray-400 hover:text-gray-600 transition duration-200">
+                        <i data-lucide="x" class="w-8 h-8"></i>
+                    </button>
+                </div>
+                <!-- Documents Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Document Card 1 -->
+                    <div
+                        class="group border border-gray-200 rounded-xl p-6 hover:shadow-xl transition duration-300 bg-white flex flex-col h-full relative overflow-hidden">
+                        <div
+                            class="absolute top-0 right-0 bg-secondary w-16 h-16 transform rotate-45 translate-x-8 -translate-y-8 opacity-20 group-hover:opacity-40 transition">
+                        </div>
+                        <div class="flex items-start justify-between mb-4">
+                            <i data-lucide="file-text" class="text-primary w-10 h-10"></i>
+                            <span
+                                class="text-xs font-bold uppercase tracking-wider text-gray-400 border border-gray-200 px-2 py-1 rounded-md">PDF</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-0 group-hover:text-primary transition">Junk Food
+                            for the Mind</h3>
+                        <h3 class="text-m font-bold text-gray-900 mb-1 group-hover:text-primary transition">David Brooks
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-6 flex-grow">
+                            David Brooks's op-ed with my marginal notes focusing on his argument about AI and cognitive
+                            effort.
+                        </p>
+                        <a href="junk_food.pdf" target="_blank"
+                            class="inline-flex items-center justify-center w-full px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-primary bg-indigo-50 hover:bg-primary hover:text-white transition duration-300">
+                            View Document <i data-lucide="external-link" class="w-4 h-4 ml-2"></i>
+                        </a>
+                    </div>
+                    <!-- Document Card 2 -->
+                    <div
+                        class="group border border-gray-200 rounded-xl p-6 hover:shadow-xl transition duration-300 bg-white flex flex-col h-full relative overflow-hidden">
+                        <div
+                            class="absolute top-0 right-0 bg-secondary w-16 h-16 transform rotate-45 translate-x-8 -translate-y-8 opacity-20 group-hover:opacity-40 transition">
+                        </div>
+
+                        <div class="flex items-start justify-between mb-4">
+                            <i data-lucide="file-text" class="text-primary w-10 h-10"></i>
+                            <span
+                                class="text-xs font-bold uppercase tracking-wider text-gray-400 border border-gray-200 px-2 py-1 rounded-md">PDF</span>
+                        </div>
+
+                        <h3 class="text-xl font-bold text-gray-900 mb-0 group-hover:text-primary transition">When Gritt
+                            Isn't Enough</h3>
+                        <h3 class="text-m font-bold text-gray-900 mb-1 group-hover:text-primary transition">Aisha Sultan
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-6 flex-grow">
+                            Sultan argues that concepts like grit are insufficient for impoverished students until
+                            their basic survival needs are met.
+                        </p>
+                        <a href="gritt.pdf" target="_blank"
+                            class="inline-flex items-center justify-center w-full px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-primary bg-indigo-50 hover:bg-primary hover:text-white transition duration-300">
+                            View Document <i data-lucide="external-link" class="w-4 h-4 ml-2"></i>
+                        </a>
+                    </div>
+                    <!-- Document Card 3 -->
+                    <div
+                        class="group border border-gray-200 rounded-xl p-6 hover:shadow-xl transition duration-300 bg-white flex flex-col h-full relative overflow-hidden">
+                        <div
+                            class="absolute top-0 right-0 bg-secondary w-16 h-16 transform rotate-45 translate-x-8 -translate-y-8 opacity-20 group-hover:opacity-40 transition">
+                        </div>
+
+                        <div class="flex items-start justify-between mb-4">
+                            <i data-lucide="file-text" class="text-primary w-10 h-10"></i>
+                            <span
+                                class="text-xs font-bold uppercase tracking-wider text-gray-400 border border-gray-200 px-2 py-1 rounded-md">PDF</span>
+                        </div>
+
+                        <h3 class="text-xl font-bold text-gray-900 mb-0 group-hover:text-primary transition">Shitty
+                            First Draft</h3>
+                        <h3 class="text-m font-bold text-gray-900 mb-1 group-hover:text-primary transition">Anne Lamott
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-6 flex-grow">
+                            Lamott encourages writers to overcome perfectionism by allowing themselves to write messy
+                            first drafts, knowing that good writing only emerges through revision.
+                        </p>
+                        <a href="Shitty.pdf" target="_blank"
+                            class="inline-flex items-center justify-center w-full px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-primary bg-indigo-50 hover:bg-primary hover:text-white transition duration-300">
+                            View Document <i data-lucide="external-link" class="w-4 h-4 ml-2"></i>
+                        </a>
+                    </div>
+                    <!-- Document Card 4 -->
+                    <div
+                        class="group border border-gray-200 rounded-xl p-6 hover:shadow-xl transition duration-300 bg-white flex flex-col h-full relative overflow-hidden">
+                        <div
+                            class="absolute top-0 right-0 bg-secondary w-16 h-16 transform rotate-45 translate-x-8 -translate-y-8 opacity-20 group-hover:opacity-40 transition">
+                        </div>
+
+                        <div class="flex items-start justify-between mb-4">
+                            <i data-lucide="file-text" class="text-primary w-10 h-10"></i>
+                            <span
+                                class="text-xs font-bold uppercase tracking-wider text-gray-400 border border-gray-200 px-2 py-1 rounded-md">PDF</span>
+                        </div>
+
+                        <h3 class="text-xl font-bold text-gray-900 mb-0 group-hover:text-primary transition">Changing
+                            Your Mindset About Revision</h3>
+                        <h3 class="text-m font-bold text-gray-900 mb-1 group-hover:text-primary transition">L. Lennie
+                            Irvin</h3>
+                        <p class="text-gray-600 text-sm mb-6 flex-grow">
+                            Irvin defines revision as a discovery process where writers develop meaning, rather than
+                            just "tidying up" errors .
+                        </p>
+                        <a href="Changing.pdf" target="_blank"
+                            class="inline-flex items-center justify-center w-full px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-primary bg-indigo-50 hover:bg-primary hover:text-white transition duration-300">
+                            View Document <i data-lucide="external-link" class="w-4 h-4 ml-2"></i>
+                        </a>
+                    </div>
+                    <!-- Document Card 5 -->
+                    <div
+                        class="group border border-gray-200 rounded-xl p-6 hover:shadow-xl transition duration-300 bg-white flex flex-col h-full relative overflow-hidden">
+                        <div
+                            class="absolute top-0 right-0 bg-secondary w-16 h-16 transform rotate-45 translate-x-8 -translate-y-8 opacity-20 group-hover:opacity-40 transition">
+                        </div>
+
+                        <div class="flex items-start justify-between mb-4">
+                            <i data-lucide="file-text" class="text-primary w-10 h-10"></i>
+                            <span
+                                class="text-xs font-bold uppercase tracking-wider text-gray-400 border border-gray-200 px-2 py-1 rounded-md">PDF</span>
+                        </div>
+
+                        <h3 class="text-xl font-bold text-gray-900 mb-0 group-hover:text-primary transition">Growth
+                            Mindset and Enhanced Learning</h3>
+                        <h3 class="text-m font-bold text-gray-900 mb-1 group-hover:text-primary transition">Carol Dweck
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-6 flex-grow">
+                            This article provides classroom strategies, like praising effort, to help educators
+                            cultivate student growth mindsets.
+                        </p>
+                        <a href="Growth_Mindset.pdf" target="_blank"
+                            class="inline-flex items-center justify-center w-full px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-primary bg-indigo-50 hover:bg-primary hover:text-white transition duration-300">
+                            View Document <i data-lucide="external-link" class="w-4 h-4 ml-2"></i>
+                        </a>
+                    </div>
+                    <!-- Document Card 6 -->
+                    <div
+                        class="group border border-gray-200 rounded-xl p-6 hover:shadow-xl transition duration-300 bg-white flex flex-col h-full relative overflow-hidden">
+                        <div
+                            class="absolute top-0 right-0 bg-secondary w-16 h-16 transform rotate-45 translate-x-8 -translate-y-8 opacity-20 group-hover:opacity-40 transition">
+                        </div>
+
+                        <div class="flex items-start justify-between mb-4">
+                            <i data-lucide="file-text" class="text-primary w-10 h-10"></i>
+                            <span
+                                class="text-xs font-bold uppercase tracking-wider text-gray-400 border border-gray-200 px-2 py-1 rounded-md">PDF</span>
+                        </div>
+
+                        <h3 class="text-xl font-bold text-gray-900 mb-0 group-hover:text-primary transition">The Power
+                            of Believing that You Can Improve</h3>
+                        <h3 class="text-m font-bold text-gray-900 mb-1 group-hover:text-primary transition">Carol Dweck
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-6 flex-grow">
+                            Dweck argues that a growth mindset-believing ability comes from effort-leads to more
+                            resilience than a fixed mindset.
+                        </p>
+                        <a href="The_Power1.pdf" target="_blank"
+                            class="inline-flex items-center justify-center w-full px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-primary bg-indigo-50 hover:bg-primary hover:text-white transition duration-300 mb-1">
+                            View Document- 1st Annotation <i data-lucide="external-link" class="w-4 h-4 ml-2"></i>
+                        </a>
+                        <a href="The_Power2.pdf" target="_blank"
+                            class="inline-flex items-center justify-center w-full px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-primary bg-indigo-50 hover:bg-primary hover:text-white transition duration-300">
+                            View Document- 2nd Annotation <i data-lucide="external-link" class="w-4 h-4 ml-2"></i>
+                        </a>
+                    </div>
+                    <!-- Document Card 7 -->
+                    <div
+                        class="group border border-gray-200 rounded-xl p-6 hover:shadow-xl transition duration-300 bg-white flex flex-col h-full relative overflow-hidden">
+                        <div
+                            class="absolute top-0 right-0 bg-secondary w-16 h-16 transform rotate-45 translate-x-8 -translate-y-8 opacity-20 group-hover:opacity-40 transition">
+                        </div>
+
+                        <div class="flex items-start justify-between mb-4">
+                            <i data-lucide="file-text" class="text-primary w-10 h-10"></i>
+                            <span
+                                class="text-xs font-bold uppercase tracking-wider text-gray-400 border border-gray-200 px-2 py-1 rounded-md">PDF</span>
+                        </div>
+
+                        <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary transition">Carol Dweck
+                            Revisits the "Growth Mindset"</h3>
+                        <h3 class="text-m font-bold text-gray-900 mb-1 group-hover:text-primary transition">Carol Dweck
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-6 flex-grow">
+                            Dweck clarifies that a true growth mindset goes beyond praising effort to include trying new
+                            strategies and acknowledging we are all a mix of mindsets.
+                        </p>
+                        <a href="Revisits_Growth_Mindset.pdf" target="_blank"
+                            class="inline-flex items-center justify-center w-full px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-primary bg-indigo-50 hover:bg-primary hover:text-white transition duration-300">
+                            View Document <i data-lucide="external-link" class="w-4 h-4 ml-2"></i>
+                        </a>
+                    </div>
+                    <!-- Document Card 8 -->
+                    <div
+                        class="group border border-gray-200 rounded-xl p-6 hover:shadow-xl transition duration-300 bg-white flex flex-col h-full relative overflow-hidden">
+                        <div
+                            class="absolute top-0 right-0 bg-secondary w-16 h-16 transform rotate-45 translate-x-8 -translate-y-8 opacity-20 group-hover:opacity-40 transition">
+                        </div>
+
+                        <div class="flex items-start justify-between mb-4">
+                            <i data-lucide="file-text" class="text-primary w-10 h-10"></i>
+                            <span
+                                class="text-xs font-bold uppercase tracking-wider text-gray-400 border border-gray-200 px-2 py-1 rounded-md">PDF</span>
+                        </div>
+
+                        <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary transition">The Promise
+                            of Intentional Activity Sonja Lubomirsky</h3>
+                        <h3 class="text-m font-bold text-gray-900 mb-1 group-hover:text-primary transition">John Mason
+                            Good
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-6 flex-grow">
+                            Lyubomirsky asserts that since 50% of happiness is genetic, we must focus on the 40% we
+                            control: our intentional activities.
+                        </p>
+                        <a href="The_Promise.pdf" target="_blank"
+                            class="inline-flex items-center justify-center w-full px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-primary bg-indigo-50 hover:bg-primary hover:text-white transition duration-300">
+                            View Document <i data-lucide="external-link" class="w-4 h-4 ml-2"></i>
+                        </a>
+                    </div>
+                    <!-- Document Card 9 -->
+                    <div
+                        class="group border border-gray-200 rounded-xl p-6 hover:shadow-xl transition duration-300 bg-white flex flex-col h-full relative overflow-hidden">
+                        <div
+                            class="absolute top-0 right-0 bg-secondary w-16 h-16 transform rotate-45 translate-x-8 -translate-y-8 opacity-20 group-hover:opacity-40 transition">
+                        </div>
+
+                        <div class="flex items-start justify-between mb-4">
+                            <i data-lucide="file-text" class="text-primary w-10 h-10"></i>
+                            <span
+                                class="text-xs font-bold uppercase tracking-wider text-gray-400 border border-gray-200 px-2 py-1 rounded-md">PDF</span>
+                        </div>
+
+                        <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary transition">The Paradox
+                            of Choice</h3>
+                        <h3 class="text-m font-bold text-gray-900 mb-1 group-hover:text-primary transition">Bary
+                            Schwartz
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-6 flex-grow">
+                            Schwartz argues that excessive options cause anxiety and paralysis, rather than freedom, due
+                            to raised expectations and opportunity costs.
+                        </p>
+                        <a href="PARADOX.pdf" target="_blank"
+                            class="inline-flex items-center justify-center w-full px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-primary bg-indigo-50 hover:bg-primary hover:text-white transition duration-300">
+                            View Document <i data-lucide="external-link" class="w-4 h-4 ml-2"></i>
+                        </a>
+                    </div>
+                    <!-- Document Card 10 -->
+                    <div
+                        class="group border border-gray-200 rounded-xl p-6 hover:shadow-xl transition duration-300 bg-white flex flex-col h-full relative overflow-hidden">
+                        <div
+                            class="absolute top-0 right-0 bg-secondary w-16 h-16 transform rotate-45 translate-x-8 -translate-y-8 opacity-20 group-hover:opacity-40 transition">
+                        </div>
+
+                        <div class="flex items-start justify-between mb-4">
+                            <i data-lucide="file-text" class="text-primary w-10 h-10"></i>
+                            <span
+                                class="text-xs font-bold uppercase tracking-wider text-gray-400 border border-gray-200 px-2 py-1 rounded-md">PDF</span>
+                        </div>
+
+                        <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary transition">The Science
+                            of Happiness in Positive Psychology 101</h3>
+                        <h3 class="text-m font-bold text-gray-900 mb-1 group-hover:text-primary transition">Martin
+                            Seligman
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-6 flex-grow">
+                            This article defines happiness as a buildable skill combining pleasure, engagement, and
+                            meaning, rather than just positive emotion.
+                        </p>
+                        <a href="happiness.pdf" target="_blank"
+                            class="inline-flex items-center justify-center w-full px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-primary bg-indigo-50 hover:bg-primary hover:text-white transition duration-300">
+                            View Document <i data-lucide="external-link" class="w-4 h-4 ml-2"></i>
+                        </a>
+                    </div>
+                    <!-- Document Card 11 -->
+                    <div
+                        class="group border border-gray-200 rounded-xl p-6 hover:shadow-xl transition duration-300 bg-white flex flex-col h-full relative overflow-hidden">
+                        <div
+                            class="absolute top-0 right-0 bg-secondary w-16 h-16 transform rotate-45 translate-x-8 -translate-y-8 opacity-20 group-hover:opacity-40 transition">
+                        </div>
+
+                        <div class="flex items-start justify-between mb-4">
+                            <i data-lucide="file-text" class="text-primary w-10 h-10"></i>
+                            <span
+                                class="text-xs font-bold uppercase tracking-wider text-gray-400 border border-gray-200 px-2 py-1 rounded-md">PDF</span>
+                        </div>
+
+                        <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary transition">Graphic
+                            Organizer</h3>
+                        <h3 class="text-m font-bold text-gray-900 mb-1 group-hover:text-primary transition">The Other
+                            Wes
+                            Moore (book)
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-6 flex-grow">
+                            This three-part organizer uses quotes and research to analyze how support systems shaped the
+                            two
+                            Wes Moores' diverging paths throughout the book.
+                        </p>
+                        <a href="Grafphic_organizer_part1.pdf" target="_blank"
+                            class="inline-flex items-center justify-center w-full px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-primary bg-indigo-50 hover:bg-primary hover:text-white transition duration-300 mb-1">
+                            View Document- 1st Part <i data-lucide="external-link" class="w-4 h-4 ml-2"></i>
+                        </a>
+                        <a href="Grafphic_organizer_part2.pdf" target="_blank"
+                            class="inline-flex items-center justify-center w-full px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-primary bg-indigo-50 hover:bg-primary hover:text-white transition duration-300 mb-1">
+                            View Document- 2nd Part <i data-lucide="external-link" class="w-4 h-4 ml-2"></i>
+                        </a>
+                        <a href="Grafphic_organizer_part3.pdf" target="_blank"
+                            class="inline-flex items-center justify-center w-full px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-primary bg-indigo-50 hover:bg-primary hover:text-white transition duration-300">
+                            View Document- 3rd Part <i data-lucide="external-link" class="w-4 h-4 ml-2"></i>
+                        </a>
+                    </div>
+                    <!-- Document Card 12 -->
+                    <div
+                        class="group border border-gray-200 rounded-xl p-6 hover:shadow-xl transition duration-300 bg-white flex flex-col h-full relative overflow-hidden">
+                        <div
+                            class="absolute top-0 right-0 bg-secondary w-16 h-16 transform rotate-45 translate-x-8 -translate-y-8 opacity-20 group-hover:opacity-40 transition">
+                        </div>
+
+                        <div class="flex items-start justify-between mb-4">
+                            <i data-lucide="external-link" class="text-primary w-10 h-10"></i>
+                            <span
+                                class="text-xs font-bold uppercase tracking-wider text-gray-400 border border-gray-200 px-2 py-1 rounded-md">URL</span>
+                        </div>
+
+                        <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary transition">The Other
+                            Wes Moore </h3>
+                        <h3 class="text-m font-bold text-gray-900 mb-1 group-hover:text-primary transition">Group
+                            Presentation
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-6 flex-grow">
+                            Research on Integrated Support Systems (school + therapy + vocational
+                            training) that connects The Other
+                            Wes Moore
+                        </p>
+                        <a href="https://www.canva.com/design/DAG4VYuB_Xk/B1bq6hQ6XYqg_N4DcE5GYA/view?utm_content=DAG4VYuB_Xk&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h3359f19da3#1"
+                            target="_blank"
+                            class="inline-flex items-center justify-center w-full px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-primary bg-indigo-50 hover:bg-primary hover:text-white transition duration-300">
+                            View Presentation <i data-lucide="external-link" class="w-4 h-4 ml-2"></i>
+                        </a>
+                    </div>
+                    <!-- Document Card 13 -->
+                    <div
+                        class="group border border-gray-200 rounded-xl p-6 hover:shadow-xl transition duration-300 bg-white flex flex-col h-full relative overflow-hidden">
+                        <div
+                            class="absolute top-0 right-0 bg-secondary w-16 h-16 transform rotate-45 translate-x-8 -translate-y-8 opacity-20 group-hover:opacity-40 transition">
+                        </div>
+
+                        <div class="flex items-start justify-between mb-4">
+                            <i data-lucide="external-link" class="text-primary w-10 h-10"></i>
+                            <span
+                                class="text-xs font-bold uppercase tracking-wider text-gray-400 border border-gray-200 px-2 py-1 rounded-md">URL</span>
+                        </div>
+
+                        <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary transition">Mastering
+                            Paragraph Structure</h3>
+                        <h3 class="text-m font-bold text-gray-900 mb-1 group-hover:text-primary transition">Group
+                            Presentation
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-6 flex-grow">
+                            The PIE Framework for Powerful Writing
+                        </p>
+                        <a href="https://drive.google.com/file/d/1Km3s4gaNtzC1n3CQqskSo3dUiU6Xc2rh/edit" target="_blank"
+                            class="inline-flex items-center justify-center w-full px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-primary bg-indigo-50 hover:bg-primary hover:text-white transition duration-300">
+                            View Presentation <i data-lucide="external-link" class="w-4 h-4 ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- GOOGLE DOCS PAGE CONTENT -->
+        <div id="GoogleDocs-page" class="page-content pt-10">
+            <div class="bg-card-bg p-10 rounded-xl shadow-2xl border border-indigo-100 max-w-3xl mx-auto text-center">
+                <!-- Close Button -->
+                <div class="flex justify-end mb-2">
+                    <button onclick="showPage('home')"
+                        class="text-gray-400 hover:text-gray-600 transition duration-200">
+                        <i data-lucide="x" class="w-8 h-8"></i>
+                    </button>
+                </div>
+                <!-- Icon -->
+                <div class="inline-block p-6 bg-blue-50 rounded-full mb-6">
+                    <i data-lucide="folder-open" class="text-primary w-16 h-16"></i>
+                </div>
+                <!-- Text -->
+                <h2 class="text-3xl font-extrabold text-gray-900 mb-4">Class Google Drive Folder</h2>
+                <p class="text-lg text-gray-600 mb-8">
+                    Access my complete collection of coursework
+                </p>
+                <!-- Button (REPLACE THE HREF WITH YOUR REAL LINK) -->
+                <a href="https://drive.google.com/drive/folders/1JJwWrJJYk11xiwljtoxQ1ouaDMBy4kq5?usp=drive_link"
+                    target="_blank"
+                    class="inline-flex items-center px-8 py-4 border border-transparent text-lg font-medium rounded-lg shadow-lg text-white bg-primary hover:bg-indigo-700 transition duration-300 transform hover:-translate-y-1">
+                    Open Folder in Google Drive
+                    <i data-lucide="external-link" class="w-5 h-5 ml-2"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- ESSAY 1 PAGE -->
+        <div id="essay1-page" class="page-content pt-10">
+            <div class="bg-card-bg p-8 rounded-xl shadow-2xl border border-indigo-100 max-w-5xl mx-auto">
+                <a href="#home" onclick="showPage('home')"
+                    class="text-primary hover:underline mb-4 inline-flex items-center cursor-pointer"><i
+                        data-lucide="chevron-left" class="w-4 h-4 mr-1"></i> Back to All Projects</a>
+                <h2 class="text-4xl font-extrabold text-primary mb-2">Understanding Happiness: A Personal
+                    Exploration
+                    Through Positive Psychology
+                </h2>
+                <!-- TAB NAVIGATION -->
+                <div class="flex space-x-4 border-b border-gray-200 mb-6 mt-4 overflow-x-auto">
+                    <button
+                        class="tab-btn active px-4 py-2 text-gray-600 hover:text-primary focus:outline-none whitespace-nowrap"
+                        onclick="switchEssayTab('essay1', 'draft')">Draft</button>
+                    <button
+                        class="tab-btn px-4 py-2 text-gray-600 hover:text-primary focus:outline-none whitespace-nowrap"
+                        onclick="switchEssayTab('essay1', 'revision')">Revision</button>
+                    <button
+                        class="tab-btn px-4 py-2 text-gray-600 hover:text-primary focus:outline-none whitespace-nowrap"
+                        onclick="switchEssayTab('essay1', 'final')">Final Work</button>
+                </div>
+                <!-- 1. DRAFT CONTENT -->
+                <div id="essay1-draft" class="tab-content">
+                    <div
+                        class="bg-white p-8 sm:p-12 border border-gray-200 shadow-sm text-black font-serif leading-loose text-lg max-w-4xl mx-auto">
+                        <h3 class="text-xl font-bold text-center mb-8">Understanding Happiness: A Personal
+                            Exploration
+                            Through Positive Psychology</h3>
+                        <p class="indent-0 mb-0"><br>
+                            When I think about happiness, I don’t imagine a perfect or easy life. For me, happiness
+                            shows up
+                            in small, real moments- laughing with people I love, doing something meaningful, or
+                            feeling
+                            grateful for where I am. In his work on Positive Psychology, Martin Seligman describes
+                            happiness
+                            not as short bursts of pleasure, but as something we can build through how we live and
+                            what
+                            we
+                            focus on. His PERMA model- Positive emotion, Engagement, Relationships, Meaning, and
+                            Accomplishment- suggests that happiness isn’t luck; it’s something we can intentionally
+                            create.
+                        </p>
+                        <p class="indent-0 mb-0"><br>
+                            While I agree with Seligman’s framework, I also believe happiness includes a quiet kind
+                            of
+                            awareness- the ability to appreciate life even when it’s not perfect. Through
+                            experiences of
+                            community, kindness, and reflection, I’ve learned that happiness grows when I’m both
+                            present
+                            and
+                            purposeful.
+                        </p>
+                        <p class="indent-0 mb-0"><br>
+                            According to Martin Seligman, happiness is much deeper than simply “feeling good.” In
+                            his
+                            book
+                            Flourish and in his TED Talk, he explains that many people chase pleasure and comfort,
+                            but
+                            real
+                            well-being is more balanced. He breaks it down into five parts, known as the PERMA
+                            model.
+                            <br><strong>P</strong>
+                            stands for positive emotion- moments of joy, gratitude, or hope that make life feel
+                            meaningful.
+                            <br><strong>E</strong> is engagement, the state of being fully absorbed in something
+                            that
+                            challenges or excites us. <br><strong>R</strong>
+                            represents relationships, the love and support we give and receive.
+                            <br><strong>M</strong>
+                            stands for meaning, which
+                            comes from using our strengths for something bigger than ourselves.<br> Finally,
+                            <strong>A</strong> stands for
+                            accomplishment, the satisfaction that comes from working toward goals and growing
+                            through
+                            effort.
+                        </p>
+                        <p class="indent-0 mb-0"><br>
+                            Seligman also emphasizes that real happiness includes both pleasure (hedonic) and
+                            purpose
+                            (eudaimonic). Feeling good matters, but it’s not enough without meaning, growth, and
+                            connection.
+                            In his view, happiness is an ongoing practice- a skill we can strengthen through
+                            gratitude,
+                            optimism, and focusing on what truly matters.
+                        </p>
+                        <p class="indent-0 mb-0"><br>
+                            In my own life, happiness rarely comes from major achievements or perfect days. One of
+                            my
+                            happiest memories is a simple one- baking with my family on a Sunday afternoon. The
+                            kitchen
+                            was
+                            a mess, music was playing, and everyone was laughing. Nothing extraordinary happened,
+                            but in
+                            that moment, I felt deeply content. Looking back, it reflected several parts of
+                            Seligman’s
+                            PERMA
+                            model: positive emotion through laughter, engagement in something creative, and strong
+                            relationships with people I love.
+                        </p>
+                        <p class="indent-0 mb-0"><br>
+                            Another meaningful moment came during a time when I wasn’t feeling great emotionally. I
+                            decided
+                            to volunteer at a community event, even though I was tired. I didn’t expect much from
+                            it-
+                            but
+                            serving food to others, connecting through small conversations, and seeing their
+                            gratitude
+                            reminded me of something important: happiness often comes when we shift our focus
+                            outward.
+                            That
+                            day showed me the “M” and “R” of PERMA- meaning and relationships. I realized that
+                            happiness
+                            isn’t about escaping pain; it’s about finding purpose that helps you carry it.
+                        </p>
+                        <p class="indent-0 mb-0"><br>
+                            These experiences taught me that happiness isn’t constant- it changes, but it always
+                            comes
+                            back
+                            to gratitude and connection. Seligman’s framework helped me understand what I was
+                            already
+                            feeling: happiness is something we build through small choices, kindness, and awareness.
+                            When I
+                            focus only on accomplishing things, I can feel empty. But when those accomplishments
+                            connect
+                            to
+                            people or purpose, the joy feels real.
+                        </p>
+                        <p class="indent-0 mb-0"><br>
+                            Over time, I’ve also learned that part of happiness is acceptance. Some of my most
+                            peaceful
+                            moments come when I stop trying to control everything- like sitting by the ocean,
+                            watching
+                            the
+                            waves, or sharing a quiet meal with someone I care about. Those moments remind me that
+                            happiness
+                            doesn’t always look loud or exciting. Sometimes it’s just being okay with where you are.
+                            That
+                            balance between doing and being, effort and rest, feels like the heart of what Seligman
+                            describes.
+                        </p>
+                        <p class="indent-0 mb-0"><br>
+                            For me, happiness means living with intention, gratitude, and connection- being present
+                            for
+                            both
+                            the beautiful and the hard parts of life. Seligman’s PERMA model gives structure to
+                            happiness,
+                            but our experiences give it soul. I’ve learned that happiness isn’t the absence of
+                            struggle;
+                            it’s finding light and meaning even when things aren’t perfect.
+                        </p>
+                        <p class="indent-0 mb-0"><br>
+                            Writing this essay helped me realize that happiness isn’t something to chase- it’s
+                            something
+                            to
+                            practice. It grows through small acts of kindness, shared laughter, and staying true to
+                            what
+                            matters most. Even in uncertain times, knowing that I can create moments of happiness
+                            through my
+                            choices makes life feel both meaningful and full of hope.
+                    </div>
+                </div>
+                <!-- 2. REVISION CONTENT -->
+                <div id="essay1-revision" class="tab-content">
+                    <div
+                        class="bg-white p-8 sm:p-12 border border-gray-200 shadow-sm text-black font-serif leading-loose text-lg max-w-4xl mx-auto">
+                        <p class="mb-8">
+                            <strong>Old Paragraph</strong><br>
+                            Another meaningful moment came during a time when I wasn’t feeling great emotionally. I
+                            decided
+                            to volunteer at a community event, even though I was tired. I didn’t expect much from
+                            it-
+                            but
+                            serving food to others, connecting through small conversations, and seeing their
+                            gratitude
+                            reminded me of something important: happiness often comes when we shift our focus
+                            outward.
+                            That
+                            day showed me the “M” and “R” of PERMA- meaning and relationships. I realized that
+                            happiness
+                            isn’t about escaping pain; it’s about finding purpose that helps you carry it.
+                        </p>
+                        <p class="mb-3">
+                            <strong>PIE revision for this paragraph</strong><br>
+                        </p>
+                        <p class="mb-5">
+                            <strong>P- Point:</strong><br>
+                            Happiness often appears when we shift our focus outward and connect with others.
+                        </p>
+                        <p class="mb-5">
+                            <strong>I- Illustration:</strong><br>
+                            During a time when I was feeling emotionally drained, I chose to volunteer at a
+                            community
+                            event.
+                            I didn’t expect much from it, but as I served food, shared small conversations, and saw
+                            the
+                            gratitude in people’s faces, I felt something change.
+                        </p>
+                        <p class="mb-8">
+                            <strong>E- Explanation:</strong><br>
+                            That experience revealed the “M” and “R” of Seligman’s PERMA model: Meaning and
+                            Relationships.
+                            It taught me that happiness isn’t about escaping pain; it’s about finding a sense of
+                            purpose
+                            and
+                            connection that gives us strength to move through difficult moments.
+                        </p>
+                        <p class="mb-3">
+                            <strong>New Paragraph</strong><br>
+                            Another meaningful moment came during a time when I was struggling emotionally. Even
+                            though
+                            I felt drained, I decided to volunteer at a community event. I didn’t expect much from
+                            it,
+                            butas I served food, exchanged small conversations, and saw the gratitude in people’s
+                            faces,
+                            as I served food, exchanged small conversations, and saw the gratitude in people’s
+                            faces,
+                            something shifted. I realized that happiness often appears when we turn our attention
+                            outward- when we connect, give, and share compassion. That day revealed to me the “M”
+                            and
+                            “R” of Seligman’s PERMA model: Meaning and Relationships. I understood that happiness
+                            isn’t
+                            about avoiding pain; it’s about discovering a purpose that helps you move through it
+                            with
+                            strength and hope.
+                        </p>
+                    </div>
+                </div>
+                <!-- 3. FINAL WORK CONTENT -->
+                <div id="essay1-final" class="tab-content">
+                    <div
+                        class="bg-white p-8 sm:p-12 border border-gray-200 shadow-sm text-black font-serif leading-loose text-lg max-w-4xl mx-auto">
+                        <h3 class="text-xl font-bold text-center mb-8">Understanding Happiness: A Personal
+                            Exploration
+                            Through Positive Psychology</h3>
+                        <p class="indent-0 mb-0">
+                            When I think about happiness, I don’t imagine a perfect or easy life. For me, happiness
+                            shows up in
+                            small, real moments-laughing with people I love, doing something meaningful, or feeling
+                            grateful for
+                            where I am. In his work on Positive Psychology, Martin Seligman describes happiness not
+                            as
+                            short
+                            bursts of pleasure, but as something we can build through how we live and what we focus
+                            on.
+                            His
+                            PERMA model- Positive emotion, Engagement, Relationships, Meaning, and Accomplishment-
+                            suggests that
+                            happiness isn’t luck; it’s something we can intentionally create.
+                        </p>
+                        <p class="indent-0 mb-0"><br>
+                            While I agree with Seligman’s framework, I also believe happiness includes a quiet kind
+                            of
+                            awareness- the ability to appreciate life even when it’s not perfect. Through
+                            experiences of
+                            community, kindness, and reflection, I’ve learned that happiness grows when I’m both
+                            present
+                            and
+                            purposeful.
+                        </p>
+                        <p class="indent-0 mb-0"><br>
+                            According to Martin Seligman, happiness is much deeper than simply “feeling good.” In
+                            his
+                            book
+                            <em>Flourish</em> and in his TED Talk, he explains that many people chase pleasure and
+                            comfort, but
+                            real well-being is more balanced. He breaks it down into five parts, known as the PERMA
+                            model.
+                            <br><strong>P</strong> stands for positive emotion-moments of joy, gratitude, or hope
+                            that
+                            make life
+                            feel meaningful. <br><strong>E</strong> is engagement, the state of being fully absorbed
+                            in
+                            something
+                            that challenges or excites us. <br><strong>R</strong> represents relationships, the love
+                            and
+                            support
+                            we
+                            give and receive. <br><strong>M</strong> stands for meaning, which comes from using our
+                            strengths
+                            for
+                            something bigger than ourselves. <br>Finally, <strong>A</strong> stands for
+                            accomplishment,
+                            the
+                            satisfaction that comes from working toward goals and growing through effort.
+                        </p>
+                        <p class="indent-0 mb-0"><br>
+                            Seligman also emphasizes that real happiness includes both pleasure (hedonic) and
+                            purpose
+                            (eudaimonic). Feeling good matters, but it’s not enough without meaning, growth, and
+                            connection. In
+                            his view, happiness is an ongoing practice- a skill we can strengthen through gratitude,
+                            optimism,
+                            and focusing on what truly matters.
+                        </p>
+                        <p class="indent-0 mb-0"><br>
+                            In my own life, happiness rarely comes from major achievements or perfect days. One of
+                            my
+                            happiest
+                            memories is a simple one-baking with my family on a Sunday afternoon. The kitchen was a
+                            mess, music
+                            was playing, and everyone was laughing. Nothing extraordinary happened, but in that
+                            moment,
+                            I felt
+                            deeply content. Looking back, it reflected several parts of Seligman’s PERMA model:
+                            positive
+                            emotion
+                            through laughter, engagement in something creative, and strong relationships with people
+                            I
+                            love.
+                        </p>
+                        <p class="indent-0 mb-0"><br>
+                            Another meaningful moment came during a time when I was struggling emotionally. Even
+                            though
+                            I felt
+                            drained, I decided to volunteer at a community event. I didn’t expect much from it, but
+                            as I
+                            served
+                            food, exchanged small conversations, and saw the gratitude in people’s faces, something
+                            shifted. I
+                            realized that happiness often appears when we turn our attention outward- when we
+                            connect,
+                            give, and
+                            share compassion. That day revealed to me the “M” and “R” of Seligman’s PERMA model:
+                            Meaning
+                            and
+                            Relationships. I understood that happiness isn’t about avoiding pain; it’s about
+                            discovering
+                            a
+                            purpose that helps you move through it with strength and hope.
+                        </p>
+                        <p class="indent-0 mb-0"><br>
+                            These experiences taught me that happiness isn’t constant- it changes, but it always
+                            comes
+                            back to
+                            gratitude and connection. Seligman’s framework helped me understand what I was already
+                            feeling:
+                            happiness is something we build through small choices, kindness, and awareness. When I
+                            focus
+                            only on
+                            accomplishing things, I can feel empty. But when those accomplishments connect to people
+                            or
+                            purpose,
+                            the joy feels real.
+                        </p>
+                        <p class="indent-0 mb-0"><br>
+                            Over time, I’ve also learned that part of happiness is acceptance. Some of my most
+                            peaceful
+                            moments
+                            come when I stop trying to control everything—like sitting by the ocean, watching the
+                            waves,
+                            or
+                            sharing a quiet meal with someone I care about. Those moments remind me that happiness
+                            doesn’t
+                            always look loud or exciting. Sometimes it’s just being okay with where you are. That
+                            balance
+                            between doing and being, effort and rest, feels like the heart of what Seligman
+                            describes.
+                        </p>
+                        <p class="indent-0 mb-0"><br>
+                            For me, happiness means living with intention, gratitude, and connection- being present
+                            for
+                            both the
+                            beautiful and the hard parts of life. Seligman’s PERMA model gives structure to
+                            happiness,
+                            but our
+                            experiences give it soul. I’ve learned that happiness isn’t the absence of struggle;
+                            it’s
+                            finding
+                            light and meaning even when things aren’t perfect. Writing this essay helped me realize
+                            that
+                            happiness isn’t something to chase- it’s something to practice. It grows through small
+                            acts
+                            of
+                            kindness, shared laughter, and staying true to what matters most. Even in uncertain
+                            times,
+                            knowing
+                            that I can create moments of happiness through my choices makes life feel both
+                            meaningful
+                            and full
+                            of hope.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ESSAY 2 PAGE -->
+        <div id="essay2-page" class="page-content pt-10">
+            <div class="bg-card-bg p-8 rounded-xl shadow-2xl border border-indigo-100 max-w-5xl mx-auto text-auto">
+                <a href="#home" onclick="showPage('home')"
+                    class="text-primary hover:underline mb-4 inline-flex items-auto cursor-pointer">
+                    <i data-lucide="chevron-left" class="w-4 h-4 mr-1"></i> Back to All Projects
+                </a>
+                <h2 class="text-3xl font-extrabold text-primary mb-4">Research Topic: Integrated Support Systems-
+                    school & therapy & vocational training</h2>
+                <!-- TAB NAVIGATION -->
+                <div class="flex space-x-4 border-b border-gray-200 mb-6 mt-4 overflow-x-auto justify-auto">
+                    <button
+                        class="tab-btn active px-4 py-2 text-gray-600 hover:text-primary focus:outline-none whitespace-nowrap"
+                        onclick="switchEssayTab('essay2', 'draft')">Draft</button>
+                    <button
+                        class="tab-btn px-4 py-2 text-gray-600 hover:text-primary focus:outline-none whitespace-nowrap"
+                        onclick="switchEssayTab('essay2', 'revision')">Peer Review</button>
+                    <button
+                        class="tab-btn px-4 py-2 text-gray-600 hover:text-primary focus:outline-none whitespace-nowrap"
+                        onclick="switchEssayTab('essay2', 'final')">Final Work</button>
+                    <button
+                        class="tab-btn px-4 py-2 text-gray-600 hover:text-primary focus:outline-none whitespace-nowrap"
+                        onclick="switchEssayTab('essay2', 'citations')">Citations</button>
+                </div>
+
+                <!-- 1. DRAFT CONTENT -->
+                <div id="essay2-draft" class="tab-content">
+                    <div
+                        class="bg-white p-8 sm:p-12 border border-gray-200 shadow-sm text-black font-serif leading-loose text-lg max-w-4xl mx-auto">
+                        <h3 class="text-xl font-bold text-center mb-8">Research Topic: Integrated Support Systems-
+                            school & therapy & vocational training</h3>
+                        <p class="indent-0 mb-8">
+                            Growing up is not just about personal choices; it is also shaped by the world around a
+                            young
+                            person, often long before they realize what influences them. Reading “The Other Wes
+                            Moore”
+                            made me reflect on how two boys with the same name, born just blocks apart, could end up
+                            with entirely different futures. It encouraged me to examine how factors like
+                            environment,
+                            trauma, education, family stability, and access to support systems shape a young
+                            person’s
+                            sense of possibility. <br>
+                            Having witnessed the impact of emotional support, mentors, and stable structures in
+                            people's
+                            lives, this topic felt both important and personal. It reminded me that young people
+                            rarely
+                            choose the conditions they grow up in; they only choose how to survive those conditions.
+                            In
+                            this essay, I argue that, while individual and family choices influenced the other Wes
+                            Moore’s path, his life was shaped much more by street culture and systemic barriers that
+                            restricted his opportunities from childhood.<br>
+                            Drawing on research about trauma, inequality, and adolescent development, as well as
+                            studies
+                            on integrated support systems, including school support, therapy, and vocational
+                            training, I
+                            will show that the other Wes’s failures resulted largely from an environment that
+                            offered
+                            survival rather than opportunity. For youth like Wes to thrive, communities must create
+                            coordinated systems that expand choices, stabilize families, and provide real pathways
+                            out
+                            of cycles of poverty and violence. Without such systems, young people cannot be expected
+                            to
+                            make better choices when the world around them offers so little.
+                        </p>
+                        <p class="indent-0 mb-8">
+                            From the start of the other Wes Moore’s life, structural forces shaped his daily reality
+                            and
+                            limited his options long before he could choose differently. He grew up in a
+                            neighborhood
+                            marked by concentrated poverty, segregation, and normalized violence- conditions created
+                            not
+                            by individual families but by political and economic systems. As the book explains, “The
+                            riots were fueled by illegal but strictly enforced racial segregation, economic
+                            contraction,
+                            and an unresponsive political system” (Moore 23). This context illustrates that Wes was
+                            born
+                            into a world already defined by inequality, where opportunities were scarce and survival
+                            took precedence. His environment was not just “dangerous”; it was the product of decades
+                            of
+                            disinvestment, redlining, and racially biased policing that shaped Black urban
+                            communities.
+                            Research adds weight to this by showing how systemic forces create instability: a 2024
+                            national study found that youth who experience parental loss through violence or drug
+                            poisoning face serious educational and emotional consequences, with Black children
+                            disproportionately affected (Schlüter et al. 1743). Although Wes’s father did not die
+                            this
+                            way, his absence put Wes at similar risk, growing up with a fragile family structure,
+                            unsupported grief, and limited adult guidance.
+                            Mental health challenges also contributed. Over two-thirds of detained or at-risk youth
+                            have
+                            untreated mental health needs, yet “only 15% of youth with a significant mental health
+                            problem received treatment while detained” (Zajac, Sheidow, and Davis 7). The traumatic
+                            environment Wes grew up in, marked by racialized policing, failing schools, and a lack
+                            of
+                            emotional or structural support, created barriers that shaped his identity and
+                            possibilities
+                            before the concept of choice even started. When a child grows up in an unstable,
+                            violent,
+                            and neglected system, they are not just “choosing poorly”; they are making choices
+                            within a
+                            framework that does not support their growth.
+                        </p>
+                        <p class="indent-0 mb-8">
+                            As the systems surrounding Wes failed to provide a safe or stable environment, the
+                            support
+                            systems that should have protected him- family guidance, school engagement, and mental
+                            health services- were inconsistent or completely absent. From a young age, Wes lacked
+                            the
+                            adult supervision and emotional support needed to process stress, build resilience, and
+                            learn to regulate his behavior. His mother, Mary, loved her children deeply but felt
+                            overwhelmed by financial strain, inconsistent access to education, and the challenges of
+                            raising children alone. She tried to keep Wes safe, but she faced larger forces: rising
+                            tuition, job instability, and systemic racism that limited her economic mobility. When
+                            Wes
+                            was arrested for spraying graffiti as a young boy, “It was years before his mother found
+                            out
+                            her son had been arrested that day” (Moore 34). This incident highlights both emotional
+                            distance and a breakdown in communication between Wes and the institutions that were
+                            meant
+                            to inform his family.
+                            Research confirms that this fragmentation is common. A study of wraparound failures
+                            found
+                            that “families…could not identify or access the services they needed due to the
+                            complexity
+                            and fragmentation of systems” (Klayman and Crawford 6). Mary was one of those parents-
+                            loving, concerned, and trying her best, yet unable to navigate a system that should have
+                            helped her. Instead of receiving counseling, academic support, or mentoring, Wes was
+                            left to
+                            handle stress and confusion on his own. Schools failed to intervene effectively. Social
+                            services never reached out. Even community organizations did not connect with the
+                            family.
+                            When children lack adults to guide them in understanding consequences, managing
+                            emotions, or
+                            envisioning a future, they often turn to peers or environments that provide quick
+                            answers.
+                            In Wes’s case, the lack of support did not simply increase his vulnerability; it created
+                            a
+                            void quickly filled by street culture.
+                        </p>
+                        <p class="indent-0 mb-8">
+                            Another major barrier in Wes’s environment was aggressive policing and the
+                            criminalization
+                            of youth behavior, which influenced how he perceived himself and how institutions viewed
+                            him. Long before Wes made serious mistakes, he was treated as a suspect- watched,
+                            monitored,
+                            and punished without any real guidance or support. For many young boys in neighborhoods
+                            like
+                            his, police presence is not felt as protection but rather as an early introduction to
+                            systems of control. The book describes police cars constantly patrolling and watching
+                            young
+                            boys on corners as if expecting trouble. This constant surveillance sends a strong
+                            message:
+                            their bodies are linked to danger, and their very existence needs monitoring. Wes
+                            recalls
+                            being stopped and questioned by police even when he hadn’t done anything wrong. These
+                            early
+                            interactions teach children that authority is not on their side and that innocence
+                            offers no
+                            protection from suspicion.
+                            Experiences like these, common for Black boys in under-resourced neighborhoods,
+                            reinforce a
+                            belief that the system is something to evade, not something to rely on. Instead of
+                            creating
+                            safety, policing breeds fear, resentment, and a survival mindset that shapes Wes’s
+                            behavior
+                            and identity. Research supports this emotional impact: youth who have early encounters
+                            with
+                            police are more likely to disengage from school, feel alienated from authority, and
+                            adopt
+                            survival-based coping strategies. They often view these interactions as confirmation
+                            that
+                            society labels them as criminals, even before they understand crime or justice systems.
+                            For
+                            a child already dealing with poverty, family instability, and inconsistent school
+                            support,
+                            such experiences deepen the idea that the only reliable sources of protection are peers
+                            or
+                            street networks, not public institutions.
+                            Instead of feeling protected, Wes felt hunted, making him more likely to turn to those
+                            around him who offered immediate safety- even if those “protectors” came from the
+                            streets.
+                            This situation was not about poor choices; it was about a system that labeled him as a
+                            criminal before he understood what crime meant. In this environment, policing did not
+                            prevent crime- it normalized the notion that Wes belonged on society’s margins, far from
+                            opportunities and the belief that adults in authority wanted him to succeed.
+                        </p>
+                        <p class="indent-0 mb-8">
+                            As the gaps in Wes’s support systems widened, street culture stepped in to provide what
+                            traditional institutions failed to offer: belonging, identity, protection, and a sense
+                            of
+                            purpose. By the time Wes reached his teenage years, the corner had become not just a
+                            physical place but a social world with its own rules, values, and rewards. The book
+                            illustrates this early on: “The drug game was everywhere, with a gun handle protruding
+                            from
+                            the top of every tenth teenager’s waistline” (Moore 27). Growing up in such an
+                            environment
+                            made drug dealing or carrying a weapon feel normal, not extraordinary. It also appeared
+                            economically rational in a world where legitimate jobs were few and poorly paying.
+                            Street
+                            culture provided an identity that felt accessible and respected.
+                            Even more influential was Tony, the older brother figure Wes admired and feared. “To
+                            Wes,
+                            Tony was a ‘certified gangsta’” (Moore 27), embodying the toughness and respect the
+                            streets
+                            seemed to demand. Tony served as both a warning and an inspiration- someone who advised
+                            Wes
+                            against his path but simultaneously represented the only consistent male role model in
+                            Wes’s
+                            life.
+                            Research clarifies this phenomenon: youth without supportive environments often seek
+                            identity and belonging in peer groups that normalize risk. Adolescents in delinquent
+                            peer
+                            networks are vulnerable to “deviance training,” where peers promote and reinforce
+                            antisocial
+                            behaviors (Cumming et al. 14). For Wes, being tough signified safety, and making money
+                            represented survival. Street culture filled the emotional and social voids left by
+                            absent
+                            support systems, offering Wes quick money, status, and a sense of competence he had
+                            never
+                            experienced in school or family. What appeared as “bad choices” to outsiders were, for
+                            Wes,
+                            survival strategies shaped by the surrounding cultural, emotional, and economic forces.
+                        </p>
+                        <p class="indent-0 mb-8">
+                            Another force shaping Wes’s identity was the intense pressure to perform masculinity in
+                            a
+                            setting where vulnerability could be dangerous. In his neighborhood, showing fear,
+                            sadness,
+                            or uncertainty was seen as a weakness that could be exploited. Expressing emotions was
+                            frowned upon, while aggression, dominance, and fearlessness were praised as survival
+                            traits.
+                            The author Wes explains that boys in his neighborhood learned early that “crying was
+                            something you did alone, if at all” (Moore 18). This message was more than cultural
+                            advice;
+                            it was a rule for survival in an environment where softness could make one a target. The
+                            other Wes absorbed these lessons even more deeply. With no father consistently present
+                            and
+                            Tony modeling a tough, uncompromising identity, Wes learned that being bold, tough, and
+                            unemotional was mandatory, not optional. Tony warned Wes to avoid the streets, but his
+                            own
+                            actions contradicted his advice, teaching Wes that masculinity meant embracing risk and
+                            projecting strength, even if it led to destructive paths.
+                            Research on boys in high-poverty neighborhoods supports this dynamic. Studies show that
+                            boys
+                            in unstable environments often develop “hypermasculine performances” as a response to
+                            violence, insecurity, and a lack of emotional support from adults (Killen, Elenbaas, and
+                            Ruck 337). When boys lack access to therapy, safe spaces, or nurturing guidance, they
+                            learn
+                            to replace vulnerability with toughness and community belonging with peer validation.
+                            This
+                            was especially true for the other Wes, who never had emotionally healthy male figures to
+                            mentor him. Without therapy or male role models who could show him that true strength
+                            includes emotional regulation, Wes’s identity became constrained by a narrow and harmful
+                            version of manhood- one defined by control, physical presence, and the ability to endure
+                            pain without complaint. This was not a personal failing; it was a cultural survival
+                            strategy
+                            shaped by systemic conditions. His sense of masculinity turned into a shield against
+                            fear
+                            and instability, yet it also obstructed his emotional growth, communication skills, and
+                            future orientation. Masculinity became both his armor and his trap.
+                        </p>
+                        <p class="indent-0 mb-8">
+                            In contrast to the other Wes, the author Wes Moore found support systems during crucial
+                            moments that changed his sense of self, emotional growth, and future. These supports did
+                            not
+                            remove his challenges- he grew up in the Bronx during violent times and a decline in
+                            public
+                            schools- but they provided structure, expectations, and mentorship at key moments. One
+                            of
+                            the most significant moments was his mother sending him to Valley Forge Military Academy
+                            after he started engaging in risky behavior. Although he resisted at first, military
+                            school
+                            eventually gave him a sense of belonging and accountability. As he later mentioned, “For
+                            the
+                            first time, I felt part of something that expected greatness from me” (Moore 88). The
+                            emotional support from adults and peers who believed in his potential gave him a sense
+                            of
+                            stability that the other Wes never experienced.
+                            School-based wraparound programs reflect this structure. Research shows that these
+                            systems
+                            are important: integrated supports “address the needs of the whole student… promoting
+                            mental
+                            and physical health and academic success” (Cumming et al. 14). At military school, the
+                            author Wes not only built discipline but also met role models- mentors, sergeants,
+                            teachers-
+                            who encouraged him to see himself differently. His outlook on the future improved
+                            because he
+                            was surrounded by people who believed that he had one. The contrast between the two boys
+                            highlights that thriving is not just about motivation. It depends on whether the systems
+                            around a young person create paths toward possibility or force them into survival mode.
+                        </p>
+                        <p class="indent-0 mb-8">
+                            While the author Wes received structure and mentorship that changed his life, the other
+                            Wes
+                            grew older without consistent emotional guidance, school support, or therapy. The
+                            instability in his home, his mother’s financial and emotional stress, and the lack of
+                            organized support meant he learned to handle stress through avoidance, impulsivity, and
+                            pursuing short-term rewards. His early experiences, like being arrested without his
+                            mother’s
+                            knowledge, set a pattern where consequences were hidden, adults were unreliable, and he
+                            dealt with problems on his own. This isolation shaped his view of responsibility: not
+                            making
+                            better choices but quietly managing his issues without asking for help.
+                            As he aged, these coping methods became identity markers shaped by the streets:
+                            toughness,
+                            defiance, and a belief that he had limited control over his life. Research on at-risk
+                            youth
+                            backs up this pattern. The Community Kids Wraparound study found that, before integrated
+                            supports were introduced, families “could not identify or access the services they
+                            needed
+                            due to the complexity and fragmentation of systems” (Klayman and Crawford 6). Wes was
+                            not
+                            avoiding help- he lived in a world where meaningful support did not exist. Without
+                            therapy,
+                            mentoring, or school intervention, his ability to manage emotions never developed in
+                            healthy
+                            ways, making decision-making under pressure even harder. Instead of seeing himself in
+                            new
+                            roles like a student, apprentice, or leader, Wes accepted the limited options around
+                            him.
+                            The lack of support systems not only influenced his choices but also restricted the
+                            futures
+                            he could envision, making the street life feel unavoidable.
+                        </p>
+                        <p class="indent-0 mb-8">
+                            The differences between the two Weses become most apparent when we look at how each
+                            responded to similar pressures. Both boys lived in unstable neighborhoods, were exposed
+                            to
+                            violence, and faced moments that could have pushed them further into danger. However,
+                            while
+                            the author Wes engaged with adults and institutions that stepped in at crucial times,
+                            the
+                            other Wes had to manage crises on his own. For the author Wes, military school became a
+                            support system, providing structure, mentors, and a community dedicated to his success.
+                            He
+                            describes how the academy encouraged him to see beyond his immediate surroundings:
+                            “People
+                            kept pushing me to see more in myself than what was directly in front of me” (Moore 94).
+                            This consistent encouragement helped him develop discipline and future-focused thinking.
+                            In contrast, the other Wes seldom received help from schools, social services, or
+                            community
+                            programs. He briefly found hope through Job Corps, where he earned his GED, discovered a
+                            passion for hands-on work, and even imagined a stable life for his children. But without
+                            solid family support or guidance after the program, he fell back into the same pressures
+                            and
+                            temptations that had shaped his life for so long. Research on wraparound social services
+                            explains this outcome: the most effective interventions require continuous cooperation
+                            among
+                            families, schools, and community supports to maintain progress over time (McCarter 3).
+                            Wes
+                            needed a coordinated system that followed him beyond a single program, helping him
+                            transition into work, develop coping skills, and stay connected to mentors.
+                            The author Wes had that kind of support system. The other Wes never did. Their different
+                            paths show that outcomes relate less to inherent differences between the two boys and
+                            more
+                            to which one had systems designed to help him succeed.
+                        </p>
+                        <p class="indent-0 mb-8">
+                            If the other Wes had access to an integrated support system early in his life- one
+                            combining
+                            school engagement, therapy, and vocational training- his path might have been very
+                            different. Many of the moments that led him toward the streets were not signs of
+                            laziness or
+                            unwillingness to change; they were signs of a boy trying to survive without guidance.
+                            Research indicates that coordinated interventions can significantly improve outcomes.
+                            For
+                            instance, the JOBS program provides “developmentally tailored wraparound services
+                            focused on
+                            career development… improving school and employment engagement from 23% to 96%” (Zajac
+                            et
+                            al. 12). Programs like this would have offered Wes job skills, mentors, emotional
+                            support,
+                            and direction- real alternatives to the fast money and identity of the drug economy.
+                            Vocational rehabilitation models like the Discovery process also show that teens
+                            flourish
+                            when adults help identify their talents and connect them to real job opportunities
+                            instead
+                            of comparing them to strict academic standards (Smith, Dillahunt-Aspillaga, and Kenney
+                            203).
+                            Wes was smart, resourceful, and capable, but no one helped him focus those abilities.
+                            Even
+                            school programs utilizing therapy, such as the PIA-2 model, enhance emotional regulation
+                            and
+                            reduce risky behavior by giving adolescents the tools to handle stress in healthier
+                            ways.
+                            Had Wes been surrounded by a system linking his school, home, and community supports, he
+                            could have built coping skills, envisioned different futures, and seen himself as
+                            capable of
+                            more than just life on the corner.
+                            His story suggests it wasn't his lack of potential that held him back but rather the
+                            absence
+                            of opportunity, structure, and lasting support. Integrated support systems work because
+                            they
+                            do not expect adolescents to navigate challenges alone. They provide the stability and
+                            guidance that street culture falsely claims to offer but never truly delivers.
+                        </p>
+                        <p class="indent-0 mb-8">
+                            The story of the two Wes Moores shows that thriving is never just the result of personal
+                            effort; it relies on the systems around a young person and the choices those systems
+                            make
+                            possible. The other Wes did not fail because he lacked intelligence, drive, or
+                            potential; he
+                            lacked support, guidance, and the chance to pursue better options. Poverty, trauma, and
+                            neglect narrowed his choices long before he understood he had any. The institutions
+                            meant to
+                            protect and guide him- schools, social services, mental health networks, and policing
+                            systems- either ignored him or interacted with him only to punish rather than support.
+                            Meanwhile, the author Wes benefited from a very different set of influences: structure,
+                            mentors, educational opportunities, and adults who consistently encouraged him to dream
+                            beyond his immediate surroundings. His journey illustrates how even one strong
+                            intervention-
+                            like a caring school, an involved mentor, or a disciplined program- can open doors that
+                            once
+                            felt impossible.
+                            Their differing lives reveal a hard truth: choice is not equal when survival conditions
+                            limit imagination, safety, and stability. Some children consider colleges; others decide
+                            between the corner and hunger. For young people to succeed, communities, schools, and
+                            families must join forces to create integrated support systems that tackle academic
+                            needs,
+                            mental health, and job development. Adolescents require more than just encouragement-
+                            they
+                            need tangible structures that make success feel achievable. They deserve safe schools
+                            where
+                            teachers notice when they go missing, mental health programs that address trauma early
+                            instead of punishing it, vocational programs that instill confidence and hope, and
+                            community
+                            systems that connect instead of leaving families to handle crises alone. Thriving takes
+                            more
+                            than “trying harder”; it needs environments that foster growth. Without coordinated
+                            support,
+                            young people learn to cope with trauma in isolation, relying on short-term survival
+                            strategies that often lead to long-term consequences.
+                            If systems provided integrated support instead of expecting resilience without
+                            resources,
+                            many youths like the other Wes could build new futures based on stability and purpose.
+                            Their
+                            stories remind us that talent exists everywhere, but opportunities do not. And those
+                            opportunities are shaped by the structures we choose to build or change. The two Wes
+                            Moores
+                            illustrate the potential outcomes when support systems step in at the right moment and
+                            what
+                            happens when they do not. Their parallel lives urge us to rethink what society owes its
+                            young people and to ensure that future generations grow up in surroundings where they
+                            can
+                            thrive, not just survive.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 2. REVISION CONTENT -->
+                <div id="essay2-revision" class="tab-content">
+                    <div class="mb-8 pb-8 border-b border-gray-100 text-center">
+                        <a href="Peer_review.pdf" target="_blank"
+                            class="inline-flex items-center px-6 py-3 border border-transparent text-base font-sans font-medium rounded-lg shadow-md text-white bg-primary hover:bg-indigo-700 transition duration-300 no-underline cursor-pointer">
+                            <i data-lucide="file-text" class="w-5 h-5 mr-2"></i> View Original Peer Review (PDF)
+                        </a>
+                    </div>
+                    <div
+                        class="bg-white p-8 sm:p-12 border border-gray-200 shadow-sm text-black font-serif leading-loose text-lg max-w-4xl mx-auto">
+                        <h3 class="text-xl font-bold text-center mb-8">My Process After Peer Review</h3>
+                        <p class="indent-0 mb-8">
+                            After the peer review by Renata Pascoe, I heavily revised my draft to meet the
+                            expectations for an analytical research paper. My greatest effort
+                            was in changing the tone of my paper from personal to objective.
+                            Specifically, based on the feedback, I avoided first-person phrases such as
+                            "Reading made me reflect" and "I argue," and replaced them with authoritative statements
+                            like "This essay contends". This way, instead of focusing on my reaction, I was
+                            able to place the focus on the evidence itself. Based on the reviewer's comment
+                            regarding the "loose thread" in my introduction- a sentence about "having witnessed"
+                            support
+                            systems--I removed it because it was not developed later in the text.
+                            In addition, I corrected a major omission by adding The Other Wes Moore to my
+                            Works Cited list since it is the main subject of the analysis.
+                            Finally, I reformatted the visual appearance of my essay to strictly conform to
+                            MLA guidelines, ensuring that all paragraphs were indented instead of in block format
+                            like
+                            my rough draft.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 3. FINAL WORK CONTENT -->
+                <div id="essay2-final" class="tab-content">
+                    <div
+                        class="bg-white p-8 sm:p-12 border border-gray-200 shadow-sm text-black font-serif leading-loose text-lg max-w-4xl mx-auto">
+                        <h3 class="text-xl font-bold text-center mb-8">Research Topic: Integrated Support Systems-
+                            school & therapy & vocational training</h3>
+                        <p class="indent-0 mb-8">
+                            Growing up is influenced not by personal choices; it is equally molded by the
+                            environment
+                            around a youth frequently beyond their conscious perception. Wes Moore’s memoir "The
+                            Other
+                            Wes Moore" recounts the lives of two boys both named Wes Moore born just a few blocks
+                            from
+                            each other whose paths split significantly. Their stories demonstrate how factors such
+                            as
+                            environment, challenges, education, family steadiness and availability of support shape
+                            an
+                            individual’s outlook on potential. The story emphasizes that young individuals seldom
+                            select
+                            the conditions of their upbringing; rather they decide how to deal with those
+                            conditions.
+                            This essay contends that while personal and familial choices affected Wes’s path his
+                            life
+                            was largely shaped by street culture and systemic obstacles that limited his
+                            opportunities
+                            from early on. Based on research concerning trauma, inequality and adolescent growth
+                            along
+                            with examinations of support networks including school programs, counseling and
+                            vocational
+                            training this analysis reveals that the challenges faced by the Wes primarily stemmed
+                            from
+                            an environment focused on survival rather than opportunity. For young people, like Wes,
+                            to
+                            succeed communities need to develop structures that expand choices, reinforce families
+                            and
+                            establish pathways out of poverty and violence. In the absence of these frameworks it is
+                            unreasonable to anticipate that young individuals will make decisions when their
+                            surroundings provide minimal assistance.
+                        </p>
+                        <p class="indent-0 mb-8">
+                            “The Other Wes Moore” weaves together the linked stories of two boys both named Wes
+                            Moore-
+                            one who achieves status as a Rhodes Scholar, military officer and author and the other
+                            who
+                            is imprisoned for life due to his involvement in a robbery that resulted in murder. This
+                            memoir alternates between the Bronx and Baltimore, during the 1980s and 1990s
+                            illustrating
+                            how their families, communities and social systems react to poverty and violence. In
+                            alternating chapters Moore shows how schooling discipline, law enforcement, job
+                            opportunities and guidance influence each Wes’s choices and identity. Ultimately it
+                            becomes
+                            evident that the "other Wes" didn’t just choose poorly; he was raised in conditions
+                            lacking
+                            support networks, where street culture frequently acted as the sole reliable structure.
+                            This
+                            context prompts an inquiry: how could enhanced coordinated support have changed his
+                            path?
+                        </p>
+                        <p class="indent-0 mb-8">
+                            From the outset of the other Wes Moore’s life systemic factors shaped his everyday
+                            experiences and restricted his options well before he had any personal say. He grew up
+                            in a
+                            community defined by poverty, racial segregation and frequent violence- circumstances
+                            created not by individual households but by political and economic frameworks. In
+                            Moore’s
+                            depiction of Baltimore’s turmoil "The riots were fueled by enforced racial segregation,
+                            economic contraction and an unresponsive political system" (Moore 23). Wes entered a
+                            world
+                            already marked by disparity, where chances were scarce and staying alive was the
+                            priority.
+                            His environment reflected decades of neglect, discriminatory lending practices that
+                            restricted families from equitable housing and credit and racially prejudiced policing,
+                            in
+                            Black city areas.
+                        </p>
+                        <p class="indent-0 mb-8">
+                            Evidence backs this depiction. A 2024 nationwide investigation revealed that young
+                            people
+                            who undergo loss due to violence or drug overdose encounter significant academic and
+                            emotional difficulties with Black children being disproportionately impacted (Schlüter
+                            et
+                            al. 1743). While Wes’s father did not pass away under these circumstances his absence
+                            resulted in Wes having a family environment, unresolved mourning and insufficient adult
+                            support. Mental health struggles also played a role. Over two-thirds of youth who are
+                            detained or considered at risk experience mental health issues yet "only 15% of youth,
+                            with
+                            a significant mental health problem received treatment while detained" (Zajac et al. 7).
+                            In
+                            terms roughly 85% do not get any treatment at the time they are most exposed to
+                            institutional systems. Wes was raised in a setting characterized by law enforcement,
+                            underfunded education and an absence of emotional or systemic backing- obstacles that
+                            influenced his identity and chances long before he grasped the concept of "choice." A
+                            youngster brought up in such a deprived environment is not merely making "choices”; they
+                            are
+                            deciding within a framework that does not support their growth.
+                        </p>
+                        <div class="my-10 flex justify-center">
+                            <img src="GRAPH.png" alt="Graph Data"
+                                class="max-w-full h-auto rounded-lg shadow-md border border-gray-100"
+                                onerror="this.style.display='none'">
+                        </div>
+                        <p class="indent-0 mb-8">
+                            With the systems surrounding Wes unable to offer stability the support frameworks
+                            intended
+                            to protect him- family guidance, school engagement and mental health services- were
+                            either
+                            inconsistent or missing. Throughout his childhood Wes was deprived of the adult
+                            supervision
+                            and emotional support essential for managing stress, developing resilience and acquiring
+                            self-discipline. His mother, Mary cared deeply for her children yet faced struggles,
+                            limited
+                            schooling options and the hardships of raising children alone. She endeavored to
+                            safeguard
+                            Wes but encountered increasing tuition fees, precarious jobs and institutional racism
+                            that
+                            hindered her advancement. Moore describes how Mary’s effort to complete her college
+                            education failed after the Pell Grant support was withdrawn, shutting down an
+                            opportunity
+                            that could have brought stability to the family (Moore 27–28). When Wes was apprehended
+                            for
+                            graffiti as a youngster "It was years before his mother found out her son had been
+                            arrested
+                            that day" (Moore 34) exposing both detachment and a failure in communication, between
+                            the
+                            household and authorities.
+                        </p>
+                        <p class="indent-0 mb-8">
+                            Studies show that this type of fragmentation is common. Research on wraparound services
+                            revealed that "families…could not identify or access the services they required due to
+                            the
+                            fragmented systems" (Klayman and Crawford 6). Mary was, among those parents-
+                            compassionate,
+                            yet unable to manage a bewildering system. Then getting counseling, educational
+                            assistance
+                            or mentoring Wes faced stress and doubt on his own. Educational institutions did not
+                            step in
+                            appropriately; social services were unable to establish a connection with the family;
+                            community organizations failed to deliver long-term assistance. When youths lack adults
+                            to
+                            guide them in grasping consequences, managing feelings or envisioning a future they
+                            frequently seek out peers or settings providing solutions even if those solutions are
+                            damaging. For Wes the lack of support not heightened his risk but also created a void
+                            that
+                            street culture rapidly occupied.
+                        </p>
+                        <p class="indent-0 mb-8">
+                            A significant obstacle in Wes’s environment was the policing and labeling of young
+                            people’s
+                            actions as criminal, influencing both his self-image and the perception institutions had
+                            of
+                            him. Prior to Wes engaging in major crimes he was viewed as a suspect- monitored,
+                            questioned
+                            and penalized without genuine support. For youths in communities like his the police are
+                            often seen not as protectors but as a confrontation, with mechanisms of control. Moore
+                            depicts police vehicles perpetually patrolling and observing boys on street corners as
+                            though they were troublemakers. This ongoing observation conveys a signal: their bodies
+                            are
+                            linked to threat and their existence has to be watched. Wes remembers being halted and
+                            interrogated by law enforcement despite having done nothing realizing that those in
+                            power
+                            were not allies and that being innocent provided no safeguard.
+                        </p>
+                        <p class="indent-0 mb-8">
+                            These encounters, frequently experienced by boys in under-resourced neighborhoods convey
+                            to
+                            young people that the system is to be avoided rather than relied upon. Then fostering
+                            security policing often generates fear, bitterness and a mindset focused on survival.
+                            Research indicates that initial interactions with law enforcement increase the chances
+                            that
+                            youth will withdraw from school, become distrustful of authority and develop coping
+                            methods
+                            based on survival. They perceive these interactions as evidence that society already
+                            views
+                            them as offenders. For a child who is already dealing with poverty, family conflicts and
+                            irregular access to education, these circumstances strengthen the notion that genuine
+                            safety
+                            is found among friends or street circles, rather than formal institutions. Wes did not
+                            experience a sense of safety; he felt pursued and thus depended on those who provided
+                            protection even if those "protectors" belonged to the streets. This scenario was not the
+                            result of poor decisions. It emerged from a system that branded him a criminal before he
+                            ever grasped the concept of crime driving him toward exclusion rather than access to
+                            opportunity.
+                        </p>
+                        <p class="indent-0 mb-8">
+                            When Wes’s support systems broke down street culture stepped in to provide connection,
+                            identity, security and meaning. By the time he reached adolescence the corner had
+                            transformed from a physical spot into a social environment governed by its own norms and
+                            incentives. Moore observes, "The drug game was everywhere, with a gun handle protruding
+                            from
+                            the top of every teenager’s waistline" (Moore 27). Within this setting selling drugs or
+                            possessing a weapon seemed typical and financially sensible particularly when lawful
+                            employment opportunities were limited and poorly compensated. The street lifestyle
+                            provided
+                            Wes with a sense of identity that commanded respect in ways that school and employment
+                            never
+                            achieved.
+                        </p>
+                        <p class="indent-0 mb-8">
+                            Tony, his elder half-brother, strengthened this influence. "To Wes Tony was a ‘
+                            gangsta’"
+                            (Moore 27) representing the grit and prestige felt essential for survival. Tony
+                            cautioned
+                            Wes about the drug world. Simultaneously exemplified it thus serving as the sole
+                            consistent
+                            male figure in his life. Studies reveal this trend: young individuals deprived of
+                            surroundings frequently seek bonds, within peer circles that embrace risky behaviors.
+                            Teenagers involved in peer groups are susceptible to "deviance training " a process
+                            where
+                            friends promote and reinforce antisocial conduct (Cumming et al. 14). For Wes being
+                            tough
+                            equated to security and earning money equated to staying alive. The street world
+                            compensated
+                            for the absence of support structures providing cash, acknowledgment and a sense of
+                            capability he never found in school or at home. Behaviors that seem to outsiders as poor
+                            choices" were, to Wes tactics, for survival molded by strong cultural and economic
+                            influences.
+                        </p>
+                        <p class="indent-0 mb-8">
+                            Masculinity was also a factor in forming Wes’s sense of self. In his community
+                            displaying
+                            fear, sadness or uncertainty was viewed as a vulnerability that could be taken advantage
+                            of
+                            by others. Showing feelings was frowned upon whereas aggression and bravery were
+                            admired.
+                            The author Wes remembers that boys were taught from an age that "crying was something
+                            you
+                            did alone if at all" (Moore 18). This was beyond guidance; it was an unspoken command
+                            for
+                            survival, in an environment where weakness could invite harm. The other Wes absorbed
+                            these
+                            teachings profoundly. Lacking a father figure and faced with Tony’s stern unyielding
+                            model
+                            he concluded that being fearless, resilient and emotionally distant was essential.
+                        </p>
+                        <p class="indent-0 mb-8">
+                            Investigations into boys living in high-poverty areas validate this trend. Research
+                            indicates they frequently exhibit "traits as a reaction to violence, unpredictability
+                            and
+                            the absence of emotional guidance from adults (Killen, Elenbaas and Ruck 337). Lacking
+                            counseling, secure environments or encouraging mentors, boys replace openness with
+                            toughness. Seek peer approval instead of authentic community bonds. This was
+                            particularly
+                            evident in the Wes, who lacked emotionally stable male role models to look up to.
+                            Without
+                            therapy or guides to demonstrate that genuine strength involves managing emotions his
+                            concept of manhood contracted into a narrative centered on control, physical power and
+                            stoic
+                            persistence. This identity was not a defect; rather it was a coping strategy molded by
+                            his
+                            circumstances. However it also hindered his development, communication abilities and
+                            capacity to envision the future. Masculinity served as both his protection and his
+                            prison.
+                        </p>
+                        <p class="indent-0 mb-8">
+                            Conversely the writer Wes Moore experienced support systems at pivotal times that
+                            transformed his sense of self, feelings and prospects. These aids did not eliminate his
+                            challenges- he was raised in the Bronx amid times and went to deteriorating public
+                            schools-
+                            but they provided him with discipline, hopes and guidance precisely when he needed them
+                            most. A significant shift occurred when his mother enrolled him in Valley Forge Military
+                            Academy after he started failing his courses and encountering problems. Initially he
+                            resisted. Military school slowly instilled in him a feeling of connection and
+                            responsibility. Looking back he states, "For the time I felt part of something that
+                            expected
+                            greatness from me" (Moore 88). The adults and classmates at the academy trusted his
+                            potential, providing him with a steadiness that the other Wes never knew.
+                        </p>
+                        <p class="indent-0 mb-8">
+                            Studies on school-based wraparound initiatives endorse the effectiveness of these
+                            frameworks. Coordinated services "address the needs of the student… fostering mental and
+                            physical well-being as well, as academic achievement" (Cumming et al. 14). At Valley
+                            Forge,
+                            Wes the author developed self-discipline. Encountered mentors- sergeants and educators-
+                            who
+                            assisted him in viewing himself in a new light. He assumed leadership positions, started
+                            considering college and understood how temporary sacrifices relate to aspirations. His
+                            focus
+                            on the future intensified as he was among individuals who anticipated he would have one.
+                            The
+                            contrast between the two boys illustrates that thriving demands more than drive; it
+                            relies
+                            on whether the environments around them build routes to opportunity or confine young
+                            people
+                            to mere survival.
+                        </p>
+                        <p class="indent-0 mb-8">
+                            Although the author Wes obtained guidance and support that changed his life the other
+                            Wes
+                            was raised without emotional backing, academic assistance or counseling. Home
+                            instability,
+                            his mother’s difficulties and the absence of structured help caused him to handle issues
+                            by
+                            evading them, acting impulsively and seeking immediate gratification. Initial
+                            experiences- ,
+                            like being arrested without his mother’s awareness- showed him that adults were
+                            untrustworthy and that consequences were frequently concealed. He became accustomed to
+                            handling crises by himself. This solitude molded his feeling of duty: not improving
+                            decision-making but silently handling difficulties without seeking assistance.
+                        </p>
+                        <p class="indent-0 mb-8">
+                            As he matured these survival tactics solidified into a persona shaped by street culture:
+                            resilience, rebellion and a conviction that he had actual influence over his situation.
+                            Studies on youth exhibit this trend. The Community Kids Wraparound project discovered
+                            that
+                            prior to the implementation of coordinated assistance families "were unable to locate or
+                            obtain the services they required because of the disjointed nature of the systems"
+                            (Klayman
+                            and Crawford 6). Wes was wasn’t rejecting assistance; he existed in an environment where
+                            genuine support was almost nonexistent. Lacking therapy, guidance or educational aid he
+                            failed to learn emotional coping strategies, which complicated making choices during
+                            stressful moments. Then identifying as a learner, trainee or leader he settled for the
+                            limited possibilities available to him. The absence of support networks affected both
+                            his
+                            decisions and the potential futures he envisioned rendering a life on the streets
+                            seemingly
+                            unavoidable.
+                        </p>
+                        <p class="indent-0 mb-8">
+                            The difference between the two Wesleys is most evident when examining their reactions to
+                            challenges. Each was raised in areas, experienced violence and confronted situations
+                            that
+                            might have dragged them further into trouble. However the author Wes was supported by
+                            adults
+                            and organizations during periods whereas the other Wes dealt with emergencies on his
+                            own.
+                            For the author Wes military school served as an encompassing support network providing
+                            structure, mentorship and a community committed to his achievement. He remembers,
+                            "People
+                            continuously urged me to see beyond what was visible" (Moore 94). That steady support
+                            aided
+                            him in cultivating discipline and a looking perspective.
+                        </p>
+                        <p class="indent-0 mb-8">
+                            In contrast the other Wes seldom got assistance from educational institutions, social
+                            services or local initiatives. Job Corps offered him a lived sense of hope: he obtained
+                            his
+                            GED, found satisfaction in practical work and envisioned a secure future for his
+                            children.
+                            However, lacking family backing or direction following the program he fell back, into
+                            the
+                            familiar challenges and enticements. Research on wraparound services clarifies this
+                            trend:
+                            the most successful approaches demand continuous collaboration between families, schools
+                            and
+                            community resources to sustain improvement (McCarter 3). Wes required an integrated
+                            support
+                            system that would accompany him beyond one program assisting him in moving into
+                            employment
+                            developing resilience skills and remaining connected to mentors. The author Wes
+                            possessed
+                            such a system. The other Wes lacked it. Their different trajectories reveal that results
+                            rely less on the boy's innate distinctions and more on which one received networks aimed
+                            at
+                            ensuring his success.
+                        </p>
+                        <p class="indent-0 mb-8">
+                            Had the other Wes received support early on- blending school involvement, therapy and
+                            career
+                            preparation- his life path might have changed significantly. Numerous instances that
+                            pushed
+                            him toward street life were not indications of unwillingness or defiance; they revealed
+                            a
+                            child struggling to survive without direction. Studies indicate that organized
+                            interventions
+                            can significantly enhance results. The JOBS initiative for instance provides " tailored
+                            wraparound services centered on career growth… boosting school and employment
+                            participation
+                            from 23% to 96%" (Zajac et al. 12). Such programs might have provided Wes with job
+                            training,
+                            mentors, emotional backing and guidance- alternatives to the quick cash and identity
+                            linked
+                            to the drug trade.
+                        </p>
+                        <p class="indent-0 mb-8">
+                            Vocational rehabilitation models like the Discovery process demonstrate that teenagers
+                            thrive when adults assist in recognizing their strengths and link them to employment
+                            opportunities rather than assessing them solely on academic achievement (Smith,
+                            Dillahunt-Aspillaga and Kenney 203). Wes possessed intelligence and resourcefulness. No
+                            one
+                            guided him in utilizing those talents effectively. School-centered initiatives
+                            incorporating
+                            therapy, such as the PIA-2 model enhance control and decrease hazardous behavior by
+                            equipping young people with skills to manage stress in healthier ways. Had Wes been
+                            enveloped by a network linking his school, home and community resources he might have
+                            developed coping mechanisms, envisioned futures and viewed himself as capable beyond
+                            life,
+                            on the street corner. His experience indicates that what limited him was not an absence
+                            of
+                            potential but a shortage of opportunities, structure and enduring support. Integrated
+                            systems are effective because they do not anticipate that teenagers confront daunting
+                            obstacles, they offer the stability and guidance that street culture claims but fails to
+                            provide.
+                        </p>
+                        <p class="indent-0 mb-8">
+                            The story of the two Wes Moores illustrates that achievement is never the outcome of
+                            personal effort; it relies on the environments around young individuals and the
+                            opportunities those environments offer. The other Wes did not fall short due to a lack
+                            of
+                            intelligence, drive or capability. He was missing support, direction and genuine
+                            opportunities to follow routes. Poverty, hardship and neglect limited his choices well
+                            before he understood he had any options. Organizations intended to safeguard and assist
+                            him-
+                            schools, social services, mental health agencies and law enforcement- . Ignored him or
+                            engaged with him primarily to discipline. Conversely the author Wes was raised under
+                            circumstances: organized programs, mentors, educational chances and adults who regularly
+                            encouraged him to envision a wider future. His experience illustrates how one impactful
+                            intervention- a nurturing school, a committed mentor or a structured program- can unlock
+                            opportunities that previously appeared out of reach.
+                        </p>
+                        <p class="indent-0 mb-8">
+                            Their varied backgrounds uncover a reality: choices are not equivalent when
+                            circumstances
+                            for survival restrict creativity, security and steadiness. Some young individuals can
+                            concentrate on college applications; others face the choice between hunger and the
+                            streets.
+                            For adolescents to thrive communities, schools and families must work together to create
+                            support networks that tackle educational needs, mental well-being and career growth.
+                            Teens
+                            need more than encouragement; they require solid frameworks that make success appear
+                            attainable. They merit institutions where instructors recognize when they are absent
+                            mental
+                            health initiatives that tackle trauma promptly rather than penalizing it vocational
+                            training
+                            that fosters self-assurance and optimism and community organizations that link families
+                            rather than abandoning them in times of need. Thriving calls for more than mere "putting
+                            in
+                            effort”; it necessitates settings that encourage development. Assistance young people
+                            are
+                            forced to handle trauma alone depending on temporary coping methods that frequently
+                            result
+                            in enduring damage. If systems offered integrated assistance instead of expecting
+                            resilience
+                            without resources, many young people like the other Wes could build new futures based on
+                            stability and purpose. Their stories remind us that talent is widespread, but
+                            opportunity is
+                            not. The outcomes of the two Wes Moores show what happens when support networks step in
+                            at
+                            the right moment- and what happens when they never arrive- challenging communities and
+                            institutions to build environments where all young people can truly thrive.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 4. CITATIONS -->
+                <div id="essay2-citations" class="tab-content">
+                    <div
+                        class="bg-white p-8 sm:p-12 border border-gray-200 shadow-sm text-black font-serif leading-loose text-lg max-w-4xl mx-auto">
+                        <h3 class="text-xl font-bold text-center mb-8">Citations</h3>
+                        <div class="space-y-6">
+                            <p class="pl-8 -indent-8">
+                                The Other Wes Moore (Memoir) Moore, Wes. <strong><em>The Other Wes Moore: One Name,
+                                        Two
+                                        Fates.</em></strong> Spiegel & Grau, 2010.
+                            </p>
+                            <p class="pl-8 -indent-8">
+                                Youth Experiencing Parental Death Due to Drug Poisoning and Firearm Violence in
+                                the U.S. Schlüter, Benjamin-Samuel, et al. <strong><em>“Youth Experiencing Parental
+                                        Death Due to Drug Poisoning and Firearm Violence in the US,
+                                        1999–2020.”</em></strong>
+                                JAMA,
+                                vol. 331, no. 20, 2024, pp. 1741–1747.
+                            </p>
+                            <p class="pl-8 -indent-8">
+                                Integrating Customized Employment Practices Within the Vocational Rehabilitation
+                                System Smith, Tammy J., Christina Dillahunt-Aspillaga, and Chip Kenney.
+                                <strong><em>“Integrating Customized Employment Practices Within the Vocational
+                                        Rehabilitation
+                                        System.”</em></strong> Journal of Vocational Rehabilitation, vol. 42, 2015,
+                                pp.
+                                201–208.
+                            </p>
+                            <p class="pl-8 -indent-8">
+                                Efficacy of an Integrated Program (PIA-2) to Reduce Risk for Problems in
+                                Adolescents López, Mariana, et al. <strong><em>“Efficacy of an Integrated Program
+                                        (PIA-2) to Reduce the Risk for Problems Related to Eating, Weight and Body
+                                        Image
+                                        in
+                                        Female Adolescents from Argentina.”</em></strong> Interdisciplinaria, vol.
+                                38,
+                                no. 2, 2021,
+                                pp. 207–224.
+                            </p>
+                            <p class="pl-8 -indent-8">
+                                Holistic Representation: Wraparound Services for First-Time Juvenile
+                                Offenders McCarter, Susan Ainsley. <strong><em>“Holistic Representation: A
+                                        Randomized Pilot Study of Wraparound Services for First-Time Juvenile
+                                        Offenders
+                                        to
+                                        Improve Functioning, Decrease Motions for Review, and Lower
+                                        Recidivism.”</em></strong> Family
+                                Court Review, vol. 54, no. 2, 2016, pp. 250–260.
+                            </p>
+                            <p class="pl-8 -indent-8">
+                                Stress Mindset Intervention & Emotional Well-Being Zhao, Shan, et al.
+                                <strong><em>“Unlocking Emotional Well-Being: Evaluation of a Stress Mindset
+                                        Intervention
+                                        with a
+                                        Metacognitive Approach.”</em></strong> Emotion, advance online publication,
+                                20
+                                Jan. 2025
+                            </p>
+                            <p class="pl-8 -indent-8">
+                                Education-Centred Formal Wraparound Services (Systematic Review) Cumming, Therese
+                                M., et
+                                al. <strong><em>“Education-Centred Formal Wraparound Services in Support of
+                                        School-Aged
+                                        Students with Complex Support Needs: A Systematic Review.”</em></strong>
+                                Australasian Journal of Special and Inclusive Education, vol. 46, 2022, pp. 47–60.
+                            </p>
+                            <p class="pl-8 -indent-8">
+                                Community Kids Wraparound Mental Health Program Klayman, Douglas, and Jenny
+                                Crawford.
+                                <strong><em>“Community Kids Wraparound Mental Health Program: An Effective Approach
+                                        to
+                                        Working with Families in Crisis.”</em></strong> Journal of Applied Social
+                                Science, vol. 1, no. 2, 2007, pp. 77–99.
+                            </p>
+                            <p class="pl-8 -indent-8">
+                                Juvenile Justice, Mental Health, and the Transition to Adulthood Zajac, Kristyn,
+                                Ashli
+                                J. Sheidow, and Maryann Davis. <strong><em>“Juvenile Justice, Mental Health, and the
+                                        Transition to Adulthood: A Review of Service System Involvement and Unmet
+                                        Needs
+                                        in the U.S.”</em></strong> Child and Youth Services Review, vol. 56, 2015,
+                                pp.
+                                139–148.
+                            </p>
+                            <p class="pl-8 -indent-8"> Community Collaboration for Empowering Future-Ready Students
+                                Garcia, Aimee. <strong><em>“Community Collaboration for Empowering Future-Ready
+                                        Students.”</em></strong> School Administrator, vol. 81, no. 11, Dec. 2024.
+                            </p>
+                            <p class="pl-8 -indent-8">
+                                Developmental Perspectives on Social Inequalities and Human Rights Killen, Melanie,
+                                Laura Elenbaas, and Martin D. Ruck. <strong><em>“Developmental Perspectives on
+                                        Social
+                                        Inequalities and Human Rights.”</em></strong> Human Development, vol. 66,
+                                2022,
+                                pp. 329–342.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        
+        <!-- ESSAY 3 PAGE -->
+        <div id="essay3-page" class="page-content pt-10">
+            <div class="bg-card-bg p-8 rounded-xl shadow-2xl border border-indigo-100 max-w-5xl mx-auto">
+                <a href="#home" onclick="showPage('home')"
+                    class="text-primary hover:underline mb-4 inline-flex items-center cursor-pointer"><i
+                        data-lucide="chevron-left" class="w-4 h-4 mr-1"></i> Back to All Projects</a>
+                <h2 class="text-4xl font-extrabold text-primary mb-2">Introductory Reflective Essay</h2>
+
+                <!-- TAB NAVIGATION -->
+                <div class="flex space-x-4 border-b border-gray-200 mb-6 mt-4 overflow-x-auto justify-auto">
+                    <button
+                        class="tab-btn active px-4 py-2 text-gray-600 hover:text-primary focus:outline-none whitespace-nowrap"
+                        onclick="switchEssayTab('essay3', 'draft')">Draft</button>
+                </div>
+
+                <!-- 1. DRAFT CONTENT (Added "active" so it shows up) -->
+                <div id="essay3-draft" class="tab-content active">
+                    <div
+                        class="bg-white p-8 sm:p-12 border border-gray-200 shadow-sm text-black font-serif leading-loose text-lg max-w-4xl mx-auto">
+                        <h3 class="text-xl font-bold text-center mb-8">Introductory Reflective Essay</h3>
+                        <p class="indent-0 text-center mb-8">
+                            Was Filed during class on 11/16/2025- hand written essay.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white mt-12 w-full">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center">
+            <p class="text-sm">&copy; 2025 Osher Amira-Marks. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        function showPage(pageId) {
+            document.querySelectorAll('.page-content').forEach(p => p.style.display = 'none');
+            const target = document.getElementById(pageId + '-page');
+            if (target) { target.style.display = 'block'; window.scrollTo({ top: 0, behavior: 'smooth' }); lucide.createIcons(); }
+        }
+        function switchEssayTab(essayId, tabName) {
+            const container = document.getElementById(essayId + '-page');
+            container.querySelectorAll('.tab-content').forEach(c => { c.classList.remove('active'); c.style.display = 'none'; });
+            container.querySelectorAll('.tab-btn').forEach(b => { b.classList.remove('active', 'text-primary'); b.classList.add('text-gray-600'); });
+            const content = document.getElementById(essayId + '-' + tabName);
+            if (content) { content.classList.add('active'); content.style.display = 'block'; }
+            if (event && event.target) {
+                const clickedBtn = event.target.closest('button');
+                clickedBtn.classList.add('active', 'text-primary');
+                clickedBtn.classList.remove('text-gray-600');
+            }
+        }
+        window.onload = function () { lucide.createIcons(); showPage('home'); };
+    </script>
+</body>
+
+</html>
