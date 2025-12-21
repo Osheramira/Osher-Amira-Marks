@@ -2524,11 +2524,10 @@
                     <button
                         class="tab-btn active px-4 py-2 text-gray-600 hover:text-primary focus:outline-none whitespace-nowrap"
                         onclick="switchEssayTab('essay3', 'draft')">Draft</button>
-                    <button
+                   <button
                         class="tab-btn px-4 py-2 text-gray-600 hover:text-primary focus:outline-none whitespace-nowrap"
                         onclick="switchEssayTab('essay3', 'revision')">Revision</button>
                 </div>
-
                 <!-- 1. DRAFT CONTENT (Added "active" so it shows up) -->
                 <div id="essay3-draft" class="tab-content active">
                     <div
@@ -2539,11 +2538,26 @@
                         </p>
                     </div>
                     <div class="mb-8 pb-8 border-b border-gray-100 text-center">
-                        <a target="_blank"
+                           <a href="OptionB.pdf" target="_blank"
                             class="inline-flex items-center px-6 py-3 border border-transparent text-base font-sans font-medium rounded-lg shadow-md text-white bg-primary hover:bg-indigo-700 transition duration-300 no-underline cursor-pointer">
-                            <i data-lucide="file-text" class="w-5 h-5 mr-2"></i> View Essay (PDF)
+                            <i data-lucide="file-text" class="w-5 h-5 mr-2"></i> I Chose Option B
                         </a>
-                        <!-- ADD THIS BACK TO THE <a: href="Peer_review.pdf"-->
+                        <a href="Outline.pdf" target="_blank"
+                            class="inline-flex items-center px-6 py-3 border border-transparent text-base font-sans font-medium rounded-lg shadow-md text-white bg-primary hover:bg-indigo-700 transition duration-300 no-underline cursor-pointer">
+                            <i data-lucide="file-text" class="w-5 h-5 mr-2"></i> Outline
+                        </a>
+                           <a href="NotesToSelf.pdf" target="_blank"
+                            class="inline-flex items-center px-6 py-3 border border-transparent text-base font-sans font-medium rounded-lg shadow-md text-white bg-primary hover:bg-indigo-700 transition duration-300 no-underline cursor-pointer">
+                            <i data-lucide="file-text" class="w-5 h-5 mr-2"></i> My Notes
+                        </a>  
+                        <a href="Quotes.pdf" target="_blank"
+                            class="inline-flex items-center px-6 py-3 border border-transparent text-base font-sans font-medium rounded-lg shadow-md text-white bg-primary hover:bg-indigo-700 transition duration-300 no-underline cursor-pointer">
+                            <i data-lucide="file-text" class="w-5 h-5 mr-2"></i> Quotes I used
+                        </a>
+                         <a href="FinalEssay.pdf" target="_blank"
+                            class="inline-flex items-center px-6 py-3 border border-transparent text-base font-sans font-medium rounded-lg shadow-md text-white bg-primary hover:bg-indigo-700 transition duration-300 no-underline cursor-pointer">
+                            <i data-lucide="file-text" class="w-5 h-5 mr-2"></i> View Final Essay
+                        </a>
                     </div>
                 </div>
                 <!-- 2. REVISION CONTENT (Added "active" so it shows up) -->
