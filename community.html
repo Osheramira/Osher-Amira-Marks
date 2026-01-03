@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community - Osher Amira-Marks</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['Merriweather', 'serif'] },
+                    colors: { primary: '#4f46e5', secondary: '#facc15', background: '#f9fafb' }
+                }
+            }
+        }
+    </script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Merriweather:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Smooth fade for modals */
+        .modal {
+            transition: opacity 0.3s ease-in-out;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .modal.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Scale effect for modal content */
+        .modal-content {
+            transform: scale(0.95);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .modal.active .modal-content {
+            transform: scale(1);
+        }
+    </style>
+</head>
+
+<body class="bg-background text-gray-800 font-sans min-h-screen flex flex-col">
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-primary tracking-tight">Osher
+                        Amira-Marks</a>
+                </div>
+                <div class="flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-500 hover:text-primary transition font-medium">Home</a>
+                    <a href="cv.html" class="text-gray-500 hover:text-primary transition font-medium">Resume</a>
+                    <a href="college.html" class="text-gray-500 hover:text-primary transition font-medium">College</a>
+                    <!-- Community is bold here -->
+                    <a href="community.html" class="text-primary font-bold border-b-2 border-primary">Community</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
+        <div class="mb-12">
+            <h1 class="text-4xl font-extrabold text-gray-900 mb-4">Community Engagement- The Jewish Connection</h1>
+            <p class="text-lg text-gray-600">Volunteering, events, and initiatives I am passionate about.</p>
+        </div>
+
+        <!-- EVENTS GRID -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- TU BESHVAT -->
+            <div onclick="openModal('modal-1')"
+                class="group bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden transform transition duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer flex flex-col h-full">
+                <!-- Cover Image for Card -->
+                <div class="h-48 bg-gray-200 overflow-hidden relative">
+                    <img src="TuBeshvat.jpg" alt="Tu Beshvat"
+                        class="w-fit h-fit object-cover group-hover:scale-105 transition duration-500">
+                </div>
+                <div class="p-6 flex-grow">
+                    <h3 class="text-2xl font-bold text-gray-900 mt-3 mb-2 group-hover:text-primary transition">Tu
+                        Beshvat</h3>
+                    <p class="text-gray-600">Tu Bishvat (the 15th of Shevat) is the "New Year for Trees." Originally an
+                        agricultural deadline, it is now celebrated as a holiday honoring nature and our connection to
+                        the land of Israel. Traditions include planting trees and eating the "Seven Species" of fruits
+                        (like figs, dates, and pomegranates) to celebrate growth and environmental stewardship.</p>
+                </div>
+                <div class="p-4 border-t border-gray-100 bg-gray-50 text-center">
+                    <span class="text-primary font-semibold text-sm flex items-center justify-center">
+                        View Photos & Details <i data-lucide="maximize-2" class="ml-2 w-4 h-4"></i>
+                    </span>
+                </div>
+            </div>
+
+            <!-- PURIM -->
+            <div onclick="openModal('modal-2')"
+                class="group bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden transform transition duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer flex flex-col h-full">
+                <div class="h-48 bg-gray-200 overflow-hidden relative">
+                    <img src="Purim2.jpg" alt="Purim"
+                        class="w-fit h-fit object-cover group-hover:scale-105 transition duration-500">
+                </div>
+                <div class="p-6 flex-grow">
+                    <h3 class="text-2xl font-bold text-gray-900 mt-3 mb-2 group-hover:text-primary transition">Purim
+                    </h3>
+                    <p class="text-gray-600">Purim is a happy and major Jewish celebration held on the 14th day of Adar
+                        in commemoration of the salvation of the Jews from the wrath of Haman, just like in the Book of
+                        Esther. The major traditions include reading the Megillah, wearing costumes, consuming
+                        Hamantaschen, and giving to charity.
+                    </p>
+                </div>
+                <div class="p-4 border-t border-gray-100 bg-gray-50 text-center">
+                    <span class="text-primary font-semibold text-sm flex items-center justify-center">
+                        View Photos & Details <i data-lucide="maximize-2" class="ml-2 w-4 h-4"></i>
+                    </span>
+                </div>
+            </div>
+
+            <!-- MIMOUNA -->
+            <div onclick="openModal('modal-3')"
+                class="group bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden transform transition duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer flex flex-col h-full">
+                <div class="h-48 bg-gray-200 overflow-hidden relative">
+                    <img src="Mimouna2.png" alt="Mimouna"
+                        class="w-fit h-fit object-cover group-hover:scale-105 transition duration-500">
+                </div>
+                <div class="p-6 flex-grow">
+                    <h3 class="text-2xl font-bold text-gray-900 mt-3 mb-2 group-hover:text-primary transition">Mimouna
+                    </h3>
+                    <p class="text-gray-600">Mimouna is a festive Moroccan Jewish holiday celebrated immediately after
+                        Passover to mark the return of leavened bread, characterized by open-door hospitality and eating
+                        sweet treats like moufleta.</p>
+                </div>
+                <div class="p-4 border-t border-gray-100 bg-gray-50 text-center">
+                    <span class="text-primary font-semibold text-sm flex items-center justify-center">
+                        View Photos & Details <i data-lucide="maximize-2" class="ml-2 w-4 h-4"></i>
+                    </span>
+                </div>
+            </div>
+
+            <!-- ZIKARON BASALON -->
+            <div onclick="openModal('modal-4')"
+                class="group bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden transform transition duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer flex flex-col h-full">
+                <div class="h-48 bg-gray-200 overflow-hidden relative">
+                    <img src="Zikaron2.jpg" alt="Zikaron Basalon"
+                        class="w-fit h-fit object-cover group-hover:scale-105 transition duration-500">
+                </div>
+                <div class="p-6 flex-grow">
+                    <h3 class="text-2xl font-bold text-gray-900 mt-3 mb-2 group-hover:text-primary transition">
+                        Zikaron Basalon- Holocaust Memorial Day</h3>
+                    <p class="text-gray-600">
+                        Zikaron BaSalon is a grass roots event that observes the commemoration of the memory of the
+                        Holocaust through private family gatherings in the home rather than in great venues. The name
+                        itself, "Memory in the Living Room," is significant in that it enables audiences to hear the
+                        stories of the survivors as well as express themselves in the arts.
+                    </p>
+                </div>
+                <div class="p-4 border-t border-gray-100 bg-gray-50 text-center">
+                    <span class="text-primary font-semibold text-sm flex items-center justify-center">
+                        View Photos & Details <i data-lucide="maximize-2" class="ml-2 w-4 h-4"></i>
+                    </span>
+                </div>
+            </div>
+
+            <!-- MEMORIAL DAY -->
+            <div onclick="openModal('modal-9')"
+                class="group bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden transform transition duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer flex flex-col h-full">
+                <div class="h-48 bg-gray-200 overflow-hidden relative">
+                    <img src="MemorialDay.jpg" alt="Memorial Day"
+                        class="w-fit h-fit object-cover group-hover:scale-105 transition duration-500">
+                </div>
+                <div class="p-6 flex-grow">
+                    <h3 class="text-2xl font-bold text-gray-900 mt-3 mb-2 group-hover:text-primary transition">
+                        Israel's Memorial Day</h3>
+                    <p class="text-gray-600">On October 7, 2023, Hamas-led militants launched a massive, coordinated
+                        surprise attack on Israel from the Gaza Strip. The offensive involved the firing of thousands of
+                        rockets and a ground invasion where militants breached the border fence, infiltrating Israeli
+                        military bases and civilian communities. The attack resulted in the deaths of approximately
+                        1,200
+                        people, mostly civilians, and the abduction of around 250 hostages into Gaza. In response,
+                        Israel
+                        declared war, launching "Operation Swords of Iron".
+                    </p>
+                </div>
+                <div class="p-4 border-t border-gray-100 bg-gray-50 text-center">
+                    <span class="text-primary font-semibold text-sm flex items-center justify-center">
+                        View Photos & Details <i data-lucide="maximize-2" class="ml-2 w-4 h-4"></i>
+                    </span>
+                </div>
+            </div>
+
+            <!-- SHAVOUT -->
+            <div onclick="openModal('modal-5')"
+                class="group bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden transform transition duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer flex flex-col h-full">
+                <div class="h-48 bg-gray-200 overflow-hidden relative">
+                    <img src="Shavout2.png" alt="Shavout"
+                        class="w-fit h-fit object-cover group-hover:scale-105 transition duration-500">
+                </div>
+                <div class="p-6 flex-grow">
+                    <h3 class="text-2xl font-bold text-gray-900 mt-3 mb-2 group-hover:text-primary transition">
+                        Shavout</h3>
+                    <p class="text-gray-600">Shavuot is a major Jewish holiday celebrated seven weeks after Passover. It
+                        commemorates the giving of the Torah to the Jewish people at Mount Sinai and also marks the
+                        ancient wheat harvest. Traditions include staying up all night to study Torah (Tikkun Leil
+                        Shavuot), reading the Book of Ruth, decorating homes with greenery, and eating dairy foods like
+                        cheesecake and blintzes.
+                    </p>
+                </div>
+                <div class="p-4 border-t border-gray-100 bg-gray-50 text-center">
+                    <span class="text-primary font-semibold text-sm flex items-center justify-center">
+                        View Photos & Details <i data-lucide="maximize-2" class="ml-2 w-4 h-4"></i>
+                    </span>
+                </div>
+            </div>
+
+            <!-- 4TH OF JULY -->
+            <div onclick="openModal('modal-6')"
+                class="group bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden transform transition duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer flex flex-col h-full">
+                <div class="h-48 bg-gray-200 overflow-hidden relative">
+                    <img src="4th2.png" alt="4th of July"
+                        class="w-fit h-fit object-cover group-hover:scale-105 transition duration-500">
+                </div>
+                <div class="p-6 flex-grow">
+                    <h3 class="text-2xl font-bold text-gray-900 mt-3 mb-2 group-hover:text-primary transition">
+                        4th of July</h3>
+                    <p class="text-gray-600">The 4th of July (Independence Day) is the national holiday of the United
+                        States commemorating the adoption of the Declaration of Independence on July 4, 1776. It marks
+                        the birth of the nation and its separation from British rule. The day is celebrated with
+                        patriotic displays, fireworks, parades, barbecues, and family gatherings, often featuring the
+                        colors red, white, and blue.
+                    </p>
+                </div>
+                <div class="p-4 border-t border-gray-100 bg-gray-50 text-center">
+                    <span class="text-primary font-semibold text-sm flex items-center justify-center">
+                        View Photos & Details <i data-lucide="maximize-2" class="ml-2 w-4 h-4"></i>
+                    </span>
+                </div>
+            </div>
+
+            <!-- SHAHAR COHEN -->
+            <div onclick="openModal('modal-7')"
+                class="group bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden transform transition duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer flex flex-col h-full">
+                <div class="h-48 bg-gray-200 overflow-hidden relative">
+                    <img src="Shahar2.png" alt="Shahar Cohen"
+                        class="w-fit h-fit object-cover group-hover:scale-105 transition duration-500">
+                </div>
+                <div class="p-6 flex-grow">
+                    <h3 class="text-2xl font-bold text-gray-900 mt-3 mb-2 group-hover:text-primary transition">
+                        The My Life Tour- Shahar Cohen</h3>
+                    <p class="text-gray-600">Shahar Cohen is an Israeli comedian and content creator who has gained
+                        international popularity for his viral videos and live performances. He is best known for his
+                        "America vs. Israel" social media series, where he humorously highlights cultural differences.
+                    </p>
+                </div>
+                <div class="p-4 border-t border-gray-100 bg-gray-50 text-center">
+                    <span class="text-primary font-semibold text-sm flex items-center justify-center">
+                        View Photos & Details <i data-lucide="maximize-2" class="ml-2 w-4 h-4"></i>
+                    </span>
+                </div>
+            </div>
+
+            <!-- ROSH HASHANA -->
+            <div onclick="openModal('modal-10')"
+                class="group bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden transform transition duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer flex flex-col h-full">
+                <div class="h-48 bg-gray-200 overflow-hidden relative">
+                    <img src="Rosh2.png" alt="Rosh Hashana"
+                        class="w-fit h-fit object-cover group-hover:scale-105 transition duration-500">
+                </div>
+                <div class="p-6 flex-grow">
+                    <h3 class="text-2xl font-bold text-gray-900 mt-3 mb-2 group-hover:text-primary transition">
+                        Rosh Hashana</h3>
+                    <p class="text-gray-600">Rosh Hashana is the Jewish New Year, marking the beginning of the High Holy
+                        Days and the "Ten Days of Repentance." It is celebrated as the anniversary of the creation of
+                        the world (specifically Adam and Eve). The holiday is a time for introspection, prayer, and
+                        hearing the blast of the Shofar (ram's horn), which calls people to wake up and repent. It is
+                        customary to eat apples dipped in honey to symbolize the wish for a sweet new year.
+                    </p>
+                </div>
+                <div class="p-4 border-t border-gray-100 bg-gray-50 text-center">
+                    <span class="text-primary font-semibold text-sm flex items-center justify-center">
+                        View Photos & Details <i data-lucide="maximize-2" class="ml-2 w-4 h-4"></i>
+                    </span>
+                </div>
+            </div>
+
+            <!-- OCTOBER 7 -->
+            <div onclick="openModal('modal-8')"
+                class="group bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden transform transition duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer flex flex-col h-full">
+                <div class="h-48 bg-gray-200 overflow-hidden relative">
+                    <img src="October2.png" alt="October 7th"
+                        class="w-fit h-fit object-cover group-hover:scale-105 transition duration-500">
+                </div>
+                <div class="p-6 flex-grow">
+                    <h3 class="text-2xl font-bold text-gray-900 mt-3 mb-2 group-hover:text-primary transition">
+                        October 7th Massacre - Memorial Event</h3>
+                    <p class="text-gray-600">On October 7, 2023, Hamas-led militants launched a massive, coordinated
+                        surprise attack on Israel from the Gaza Strip. The offensive involved the firing of thousands of
+                        rockets and a ground invasion where militants breached the border fence, infiltrating Israeli
+                        military bases and civilian communities. The attack resulted in the deaths of approximately
+                        1,200
+                        people, mostly civilians, and the abduction of around 250 hostages into Gaza. In response,
+                        Israel
+                        declared war, launching "Operation Swords of Iron".
+                    </p>
+                </div>
+                <div class="p-4 border-t border-gray-100 bg-gray-50 text-center">
+                    <span class="text-primary font-semibold text-sm flex items-center justify-center">
+                        View Photos & Details <i data-lucide="maximize-2" class="ml-2 w-4 h-4"></i>
+                    </span>
+                </div>
+            </div>
+
+
+
+        </div>
+    </main>
+
+
+    <!-- MODALS (Mini Pages) -->
+    <!-- TU BESHVAT -->
+    <div id="modal-1"
+        class="modal fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
+        onclick="closeModal('modal-1')">
+        <div class="modal-content bg-white w-full max-w-4xl rounded-2xl shadow-2xl overflow-hidden max-h-[90vh] overflow-y-auto"
+            onclick="event.stopPropagation()">
+
+            <!-- Modal Header -->
+            <div class="relative h-64">
+                <img src="TuBeshvat2.jpg" alt="Tu Beshvat" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-8">
+                    <div>
+                        <h2 class="text-4xl font-bold text-white mb-2">Tu Beshvat</h2>
+                        <p class="text-gray-200">February 2025 • San Francisco</p>
+                    </div>
+                </div>
+                <button onclick="closeModal('modal-1')"
+                    class="absolute top-4 right-4 bg-white/20 hover:bg-white/40 backdrop-blur-md p-2 rounded-full text-white transition">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="p-8">
+                <p class="text-lg text-gray-700 leading-relaxed mb-8">
+                    We hosted a lively “Tu-Beshvat” event which brought people from all around the Bay Area together
+                    for a celebration of the New Year for Trees.
+                    The evening offered a delicious platter of cheese, wine, salads and dried fruits from tradition.
+                    Riki Trigalo, a functional therapist and nutritionist, was the guest lecturer for the evening with a
+                    talk titled “Balanced Health on Tu BiShvat”. The talk covered how sugar affects our body,
+                    recommendations for a choice of healthy dried fruits, and how we should look at package foods.
+                    It is a great platform for celebrating nature and knowing balanced nutrition.
+                </p>
+
+                <!-- PHOTO LIBRARY -->
+                <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center"><i data-lucide="camera"
+                        class="w-5 h-5 mr-2 text-primary"></i> Photo Library</h3>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+                    <!-- Replace these src with your real photos -->
+                    <img src="TuBeshvat.jpg" class="rounded-lg shadow-sm hover:shadow-md transition">
+                    <img src="1E924808-B122-4445-A79E-C91E3570B2EF.JPG"
+                        class="rounded-lg shadow-sm hover:shadow-md transition">
+                    <img src="9DD233AC-1DDD-4F0A-A31B-6AAA6402BD48.JPG"
+                        class="rounded-lg shadow-sm hover:shadow-md transition">
+                    <img src="E63C3A99-8D75-4CD1-965C-64E13075D963.JPG"
+                        class="rounded-lg shadow-sm hover:shadow-md transition">
+                    <img src="FADA91AE-CAF1-478C-BFCE-625AE71EED9D.JPG"
+                        class="rounded-lg shadow-sm hover:shadow-md transition">
+                </div>
+
+                <!-- EXTERNAL LINK BUTTON -->
+                <div class="text-center pt-6 border-t border-gray-100">
+                    <a href="https://partiful.com/e/sbfcmf4lNJRsYPbs7FnC" target="_blank"
+                        class="inline-flex items-center px-8 py-3 bg-primary text-white rounded-lg font-bold shadow-lg hover:bg-indigo-700 transition transform hover:-translate-y-1">
+                        Visit Official Event Page <i data-lucide="external-link" class="ml-2 w-5 h-5"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PURIM -->
+    <div id="modal-2"
+        class="modal fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
+        onclick="closeModal('modal-2')">
+        <div class="modal-content bg-white w-full max-w-4xl rounded-2xl shadow-2xl overflow-hidden max-h-[90vh] overflow-y-auto"
+            onclick="event.stopPropagation()">
+            <div class="relative h-64">
+                <img src="Purim2.jpg" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-8">
+                    <div>
+                        <h2 class="text-4xl font-bold text-white mb-2">Purim</h2>
+                        <p class="text-gray-200">March 2025 • Community Center</p>
+                    </div>
+                </div>
+                <button onclick="closeModal('modal-2')"
+                    class="absolute top-4 right-4 bg-white/20 hover:bg-white/40 backdrop-blur-md p-2 rounded-full text-white transition">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <div class="p-8">
+                <p class="text-lg text-gray-700 leading-relaxed mb-8">
+                    The Jewish Connection is hosting a festive Purim celebration, sponsored by Manny’s. It’s a
+                    family-friendly event where everyone is invited to dress up and take part in
+                    this fun Purim tradition of celebrating while in costume. You are also invited to bring Mishloach
+                    Manot, gift-baskets that will be distributed, and there will be a Hamantaschen activity going on,
+                    which are the fun Purim cookies. It is a great way to support a community center while celebrating
+                    in fun and festive style. Please RSVP to ensure there will be enough supplies for all.
+                </p>
+
+                <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center"><i data-lucide="camera"
+                        class="w-5 h-5 mr-2 text-primary"></i> Photo Library</h3>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+                    <img src="Purim.jpg" class="rounded-lg shadow-sm hover:shadow-md transition">
+                    <img src="4b55d717-b977-46e4-8e8f-f939c1ea2139.JPG"
+                        class="rounded-lg shadow-sm hover:shadow-md transition">
+                    <img src="05EDE5EB-921A-4FBC-AFFD-4A60DB697B25.JPG"
+                        class="rounded-lg shadow-sm hover:shadow-md transition">
+                    <img src="61c6ef77-2080-4305-9ebb-93260274032b.JPG"
+                        class="rounded-lg shadow-sm hover:shadow-md transition">
+                    <img src="160406f2-7ef7-4c94-a1fb-c2e432b5e801.JPG"
+                        class="rounded-lg shadow-sm hover:shadow-md transition">
+                    <img src="ac317aa3-6e75-42c3-a34c-b443e4d5ba8c.JPG"
+                        class="rounded-lg shadow-sm hover:shadow-md transition">
+                    <img src="d19ca4db-3306-44f9-be06-2c14a1df6c90.JPG"
+                        class="rounded-lg shadow-sm hover:shadow-md transition">
+                </div>
+                <!-- EXTERNAL LINK BUTTON -->
+                <div class="text-center pt-6 border-t border-gray-100">
+                    <a href="https://partiful.com/e/WfSdyoTvDqPnG2FFOBFk" target="_blank"
+                        class="inline-flex items-center px-8 py-3 bg-primary text-white rounded-lg font-bold shadow-lg hover:bg-indigo-700 transition transform hover:-translate-y-1">
+                        Visit Official Event Page <i data-lucide="external-link" class="ml-2 w-5 h-5"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MIMOUNA -->
+    <div id="modal-3"
+        class="modal fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
+        onclick="closeModal('modal-3')">
+        <div class="modal-content bg-white w-full max-w-4xl rounded-2xl shadow-2xl overflow-hidden max-h-[90vh] overflow-y-auto"
+            onclick="event.stopPropagation()">
+            <div class="relative h-64">
+                <img src="Mimouna2.png" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-8">
+                    <div>
+                        <h2 class="text-4xl font-bold text-white mb-2">Mimouna</h2>
+                        <p class="text-gray-200">April 2025 • San Francisco</p>
+                    </div>
+                </div>
+                <button onclick="closeModal('modal-3')"
+                    class="absolute top-4 right-4 bg-white/20 hover:bg-white/40 backdrop-blur-md p-2 rounded-full text-white transition">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <div class="p-8">
+                <p class="text-lg text-gray-700 leading-relaxed mb-8">
+                    We celebrated Mimouna with a vibrant gathering in San Francisco's Mission District, co-hosted by
+                    The
+                    Kitchen SF. The night was filled with traditional moufletas, holiday delicacies, and drinks.
+                    Guests
+                    enjoyed live music from Asher Shasho Levy, Rabbi Noa Kushner, and others, creating a joyful
+                    atmosphere of dancing and community abundance ("Tirbachu U-tis'adu!").
+                </p>
+
+                <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center"><i data-lucide="camera"
+                        class="w-5 h-5 mr-2 text-primary"></i> Photo Library</h3>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+                    <img src="Mimouna.png" class="rounded-lg shadow-sm hover:shadow-md transition">
+                    <img src="3c720a1a-b01a-4d34-bef2-afa192181772.JPG"
+                        class="rounded-lg shadow-sm hover:shadow-md transition">
+                    <img src="3e2f7c2c-cd3f-4258-86ef-c4f40049c1ea.JPG"
+                        class="rounded-lg shadow-sm hover:shadow-md transition">
+                    <img src="5c44a3a8-65a0-4df4-921e-55cc7a016bc9.JPG"
+                        class="rounded-lg shadow-sm hover:shadow-md transition">
+                    <img src="8ac7df3e-b7ea-48d7-aa91-8dab55a8c551.JPG"
+                        class="rounded-lg shadow-sm hover:shadow-md transition">
+                    <img src="20ae8b68-a945-4421-96ed-be836631055c.JPG"
+                        class="rounded-lg shadow-sm hover:shadow-md transition">
+                    <img src="22ace0eb-23b2-4c0b-99d4-6c09add7adf6.JPG"
+                        class="rounded-lg shadow-sm hover:shadow-md transition">
+                    <img src="46e320e9-5858-4a96-9ed0-19338d6f0ac3.JPG"
+                        class="rounded-lg shadow-sm hover:shadow-md transition">
+                    <img src="84c0cbea-65bf-4eb2-8479-38d5bb1295dc.JPG"
+                        class="rounded-lg shadow-sm hover:shadow-md transition">
+                    <img src="164aefe3-3a22-40db-9d2b-8a2e416a7deb.JPG"
+                        class="rounded-lg shadow-sm hover:shadow-md transition">
+                    <img src="3689ff1b-f7b0-48d8-9c3f-d4e5fe4d11e8.JPG"
+                        class="rounded-lg shadow-sm hover:shadow-md transition">
+                    <img src="7667b652-c6ad-4624-866f-305026333895.JPG"
+                        class="rounded-lg shadow-sm hover:shadow-md transition">
+                    <img src="53221a4c-96d8-4fd9-b6af-2f17991fa7f8.JPG"
+                        class="rounded-lg shadow-sm hover:shadow-md transition">
+                    <img src="95166a1b-269f-4b25-ac06-f5b0aad8aa61.JPG"
+                        class="rounded-lg shadow-sm hover:shadow-md transition">
+                    <img src="86716330-5b65-495c-af0e-25c89eef6078.JPG"
+                        class="rounded-lg shadow-sm hover:shadow-md transition">
+                    <img src="a71207d8-5b1c-4984-9529-576f6576db1b.JPG"
+                        class="rounded-lg shadow-sm hover:shadow-md transition">
+                    <img src="c73f6783-310b-4f96-8182-059090963e55.JPG"
+                        class="rounded-lg shadow-sm hover:shadow-md transition">
+                    <img src="d99e5d67-3886-409b-89d7-7f43c5ec6cc4.JPG"
+                        class="rounded-lg shadow-sm hover:shadow-md transition">
+                    <img src="daaf52f1-221f-49a0-be05-d72704aa516f.JPG"
+                        class="rounded-lg shadow-sm hover:shadow-md transition">
+                    <img src="f0e0a2fe-6edd-4e5e-bbc8-9f9e9bcdcf8f.JPG"
+                        class="rounded-lg shadow-sm hover:shadow-md transition">
+                    <img src="f63853ca-1f45-44c5-9a63-0043845cc78d.JPG"
+                        class="rounded-lg shadow-sm hover:shadow-md transition">
+                </div>
+                <!-- EXTERNAL LINK BUTTON -->
+                <div class="text-center pt-6 border-t border-gray-100">
+                    <a href="https://partiful.com/e/PhCfYQOZUcajbJUrRDWH" target="_blank"
+                        class="inline-flex items-center px-8 py-3 bg-primary text-white rounded-lg font-bold shadow-lg hover:bg-indigo-700 transition transform hover:-translate-y-1">
+                        Visit Official Event Page <i data-lucide="external-link" class="ml-2 w-5 h-5"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ZIKARON BASALON -->
+    <div id="modal-4"
+        class="modal fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
+        onclick="closeModal('modal-4')">
+        <div class="modal-content bg-white w-full max-w-4xl rounded-2xl shadow-2xl overflow-hidden max-h-[90vh] overflow-y-auto"
+            onclick="event.stopPropagation()">
+            <div class="relative h-64">
+                <img src="Zikaron2.jpg" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-8">
+                    <div>
+                        <h2 class="text-4xl font-bold text-white mb-2"> Zikaron Basalon- Holocaust Memorial Day</h2>
+                        <p class="text-gray-200">April 2025 • San Francisco</p>
+                    </div>
+                </div>
+                <button onclick="closeModal('modal-4')"
+                    class="absolute top-4 right-4 bg-white/20 hover:bg-white/40 backdrop-blur-md p-2 rounded-full text-white transition">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <div class="p-8">
+                <p class="text-lg text-gray-700 leading-relaxed mb-8">
+                    Our families came together to honor Holocaust Remembrance Day with a
+                    special Zikaron BaSalon (“Memory in the Living Room” event). This intimate evening brought
+                    together Holocaust survivor Gershon Finlev to share a family’s powerful tale with our group.
+                    This English-language event offered our teenagers and families a chance to connect and remember
+                    to never forget these stories.
+                </p>
+
+                <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center"><i data-lucide="camera"
+                        class="w-5 h-5 mr-2 text-primary"></i> Photo Library</h3>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+                    <img src="Zikaron.jpg" class="rounded-lg shadow-sm hover:shadow-md transition">
+                    <img src="IMG_5315.jpeg"
+                        class="rounded-lg shadow-sm hover:shadow-md transition">
+                </div>
+                <!-- EXTERNAL LINK BUTTON -->
+                <div class="text-center pt-6 border-t border-gray-100">
+                    <a href="https://partiful.com/e/9ox2cqABmpxJD2wZShht" target="_blank"
+                        class="inline-flex items-center px-8 py-3 bg-primary text-white rounded-lg font-bold shadow-lg hover:bg-indigo-700 transition transform hover:-translate-y-1">
+                        Visit Official Event Page <i data-lucide="external-link" class="ml-2 w-5 h-5"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MEMORIAL DAY -->
+    <div id="modal-9"
+        class="modal fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
+        onclick="closeModal('modal-9')">
+        <div class="modal-content bg-white w-full max-w-4xl rounded-2xl shadow-2xl overflow-hidden max-h-[90vh] overflow-y-auto"
+            onclick="event.stopPropagation()">
+            <div class="relative h-64">
+                <img src="MemorialDay.jpg" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-8">
+                    <div>
+                        <h2 class="text-4xl font-bold text-white mb-2">Israel's Memorial Day</h2>
+                        <p class="text-gray-200">April 2025 • San Francisco</p>
+                    </div>
+                </div>
+                <button onclick="closeModal('modal-9')"
+                    class="absolute top-4 right-4 bg-white/20 hover:bg-white/40 backdrop-blur-md p-2 rounded-full text-white transition">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <div class="p-8">
+                <p class="text-lg text-gray-700 leading-relaxed mb-8">
+                    We gathered for a community-wide Yom HaZikaron (Israel's Memorial Day) ceremony to honor the
+                    fallen soldiers of the IDF and victims of terror. Organized by the Consulate General of Israel
+                    to the Pacific Northwest and partners, the solemn evening featured a memorial wall, a siren to
+                    mark the moment of silence, and a program of prayers, songs, and personal reflections. It was a
+                    time to stand together in grief and gratitude, paying tribute to those who sacrificed their
+                    lives for the State of Israel.
+                </p>
+
+                <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center"><i data-lucide="camera"
+                        class="w-5 h-5 mr-2 text-primary"></i> Photo Library</h3>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+                    <img src="MemorialDay.jpg" class="rounded-lg shadow-sm hover:shadow-md transition">
+                     <!-- <img src="https://placehold.co/400x300?text=photo"
+                        class="rounded-lg shadow-sm hover:shadow-md transition"> -->
+                </div>
+                <!-- EXTERNAL LINK BUTTON -->
+                <div class="text-center pt-6 border-t border-gray-100">
+                    <a href="https://yomhazikaronsf.eventbrite.com/" target="_blank"
+                        class="inline-flex items-center px-8 py-3 bg-primary text-white rounded-lg font-bold shadow-lg hover:bg-indigo-700 transition transform hover:-translate-y-1">
+                        Visit Official Event Page <i data-lucide="external-link" class="ml-2 w-5 h-5"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SHAVOUT -->
+    <div id="modal-5"
+        class="modal fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
+        onclick="closeModal('modal-5')">
+        <div class="modal-content bg-white w-full max-w-4xl rounded-2xl shadow-2xl overflow-hidden max-h-[90vh] overflow-y-auto"
+            onclick="event.stopPropagation()">
+            <div class="relative h-64">
+                <img src="Shavout2.png" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-8">
+                    <div>
+                        <h2 class="text-4xl font-bold text-white mb-2"> Zikaron Basalon- Holocaust Memorial Day</h2>
+                        <p class="text-gray-200">June 2025 • San Francisco</p>
+                    </div>
+                </div>
+                <button onclick="closeModal('modal-5')"
+                    class="absolute top-4 right-4 bg-white/20 hover:bg-white/40 backdrop-blur-md p-2 rounded-full text-white transition">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <div class="p-8">
+                <p class="text-lg text-gray-700 leading-relaxed mb-8">
+                    We celebrated Shavuot with a festive Community Potluck Brunch in the beautiful city of San
+                    Francisco. It was a delicious afternoon when all of us got to share our most-loved dairy
+                    preparations for a bountiful table. We added the flair of fine wines and cheeses to the setting
+                    in
+                    order to have music, meaning, and holiday joy for all of us.
+                </p>
+
+                <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center"><i data-lucide="camera"
+                        class="w-5 h-5 mr-2 text-primary"></i> Photo Library</h3>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+                    <img src="Shavout.png" class="rounded-lg shadow-sm hover:shadow-md transition">
+                    <img src="IMG_5700.jpeg"
+                        class="rounded-lg shadow-sm hover:shadow-md transition">
+                    <img src="IMG_5699.jpeg"
+                        class="rounded-lg shadow-sm hover:shadow-md transition">
+                </div>
+                <!-- EXTERNAL LINK BUTTON -->
+                <div class="text-center pt-6 border-t border-gray-100">
+                    <a href="https://partiful.com/e/jutxUff3vtkp6gmYPbku" target="_blank"
+                        class="inline-flex items-center px-8 py-3 bg-primary text-white rounded-lg font-bold shadow-lg hover:bg-indigo-700 transition transform hover:-translate-y-1">
+                        Visit Official Event Page <i data-lucide="external-link" class="ml-2 w-5 h-5"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4TH OF JULY -->
+    <div id="modal-6"
+        class="modal fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
+        onclick="closeModal('modal-6')">
+        <div class="modal-content bg-white w-full max-w-4xl rounded-2xl shadow-2xl overflow-hidden max-h-[90vh] overflow-y-auto"
+            onclick="event.stopPropagation()">
+            <div class="relative h-64">
+                <img src="4th2.png" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-8">
+                    <div>
+                        <h2 class="text-4xl font-bold text-white mb-2"> 4th of July</h2>
+                        <p class="text-gray-200">July 2025 • San Francisco</p>
+                    </div>
+                </div>
+                <button onclick="closeModal('modal-6')"
+                    class="absolute top-4 right-4 bg-white/20 hover:bg-white/40 backdrop-blur-md p-2 rounded-full text-white transition">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <div class="p-8">
+                <p class="text-lg text-gray-700 leading-relaxed mb-8">
+                    We gathered for a fun, family-friendly Community BBQ to celebrate the American Independence Day.
+                    Building on the success of last year, it was a potluck-style event where everyone brought
+                    their own meats or veggies for the grill, plus side dishes to share. It was a relaxed day of
+                    food,
+                    drinks, games (like backgammon and cards), and music, bringing friends and families together in
+                    San
+                    Francisco.
+                </p>
+
+                <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center"><i data-lucide="camera"
+                        class="w-5 h-5 mr-2 text-primary"></i> Photo Library</h3>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+                    <img src="4th.png" class="rounded-lg shadow-sm hover:shadow-md transition">
+                  <!-- <img src="https://placehold.co/400x300?text=photo"
+                        class="rounded-lg shadow-sm hover:shadow-md transition"> -->
+                </div>
+                <!-- EXTERNAL LINK BUTTON -->
+                <div class="text-center pt-6 border-t border-gray-100">
+                    <a href="https://partiful.com/e/bHEIRA1U5VcyIKbdMh2c" target="_blank"
+                        class="inline-flex items-center px-8 py-3 bg-primary text-white rounded-lg font-bold shadow-lg hover:bg-indigo-700 transition transform hover:-translate-y-1">
+                        Visit Official Event Page <i data-lucide="external-link" class="ml-2 w-5 h-5"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SHAHAR COHEN -->
+    <div id="modal-7"
+        class="modal fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
+        onclick="closeModal('modal-7')">
+        <div class="modal-content bg-white w-full max-w-4xl rounded-2xl shadow-2xl overflow-hidden max-h-[90vh] overflow-y-auto"
+            onclick="event.stopPropagation()">
+            <div class="relative h-64">
+                <img src="Shahar2.png" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-8">
+                    <div>
+                        <h2 class="text-4xl font-bold text-white mb-2">The My Life Tour- Shahar Cohen</h2>
+                        <p class="text-gray-200">September 2025 • San Francisco</p>
+                    </div>
+                </div>
+                <button onclick="closeModal('modal-7')"
+                    class="absolute top-4 right-4 bg-white/20 hover:bg-white/40 backdrop-blur-md p-2 rounded-full text-white transition">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <div class="p-8">
+                <p class="text-lg text-gray-700 leading-relaxed mb-8">
+                    We enjoyed a hilarious and heartwarming evening with Israeli comedian Shahar Cohen and his hit
+                    show,
+                    "My Life." Held at the Menorah Center in San Francisco, the English-language performance
+                    featured
+                    Shahar as himself and his beloved character "Nofar," offering sharp wit and unapologetic
+                    insights
+                    into Israeli culture and life between worlds. It was an unforgettable night of laughter and
+                    connection.
+                </p>
+
+                <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center"><i data-lucide="camera"
+                        class="w-5 h-5 mr-2 text-primary"></i> Photo Library</h3>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+                    <img src="Shahar.png" class="rounded-lg shadow-sm hover:shadow-md transition">
+                    <img src="376D3539-4162-46BC-AC2C-96EE70522FDF.JPG"
+                        class="rounded-lg shadow-sm hover:shadow-md transition">
+                    <img src="IMG_6772.jpeg"
+                        class="rounded-lg shadow-sm hover:shadow-md transition">
+                    <img src="IMG_6774.jpeg"
+                        class="rounded-lg shadow-sm hover:shadow-md transition">
+                    <img src="IMG_6776.jpeg"
+                        class="rounded-lg shadow-sm hover:shadow-md transition">
+                    <img src="IMG_6778.jpeg"
+                        class="rounded-lg shadow-sm hover:shadow-md transition">
+                </div>
+                <!-- EXTERNAL LINK BUTTON -->
+                <div class="text-center pt-6 border-t border-gray-100">
+                    <a href="https://www.tickettailor.com/events/thejewishconnection/1799612" target="_blank"
+                        class="inline-flex items-center px-8 py-3 bg-primary text-white rounded-lg font-bold shadow-lg hover:bg-indigo-700 transition transform hover:-translate-y-1">
+                        Visit Official Event Page <i data-lucide="external-link" class="ml-2 w-5 h-5"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ROSH HASHANA -->
+    <div id="modal-10"
+        class="modal fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
+        onclick="closeModal('modal-10')">
+        <div class="modal-content bg-white w-full max-w-4xl rounded-2xl shadow-2xl overflow-hidden max-h-[90vh] overflow-y-auto"
+            onclick="event.stopPropagation()">
+            <div class="relative h-64">
+                <img src="Rosh2.png" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-8">
+                    <div>
+                        <h2 class="text-4xl font-bold text-white mb-2">Rosh Hashana</h2>
+                        <p class="text-gray-200">September 2025 • San Francisco</p>
+                    </div>
+                </div>
+                <button onclick="closeModal('modal-10')"
+                    class="absolute top-4 right-4 bg-white/20 hover:bg-white/40 backdrop-blur-md p-2 rounded-full text-white transition">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <div class="p-8">
+                <p class="text-lg text-gray-700 leading-relaxed mb-8">
+                    We toasted to the New Year with a casual, cozy Rosh Hashanah Holiday Toast at Osha. The evening was
+                    all about good vibes and community, featuring delicious food. It was a warm and welcoming way to
+                    kick off the holiday season together.
+                </p>
+
+                <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center"><i data-lucide="camera"
+                        class="w-5 h-5 mr-2 text-primary"></i> Photo Library</h3>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+                    <img src="Rosh.png" class="rounded-lg shadow-sm hover:shadow-md transition">
+                  <!-- <img src="https://placehold.co/400x300?text=photo"
+                        class="rounded-lg shadow-sm hover:shadow-md transition"> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- OCTOBER 7 -->
+    <div id="modal-8"
+        class="modal fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
+        onclick="closeModal('modal-8')">
+        <div class="modal-content bg-white w-full max-w-4xl rounded-2xl shadow-2xl overflow-hidden max-h-[90vh] overflow-y-auto"
+            onclick="event.stopPropagation()">
+            <div class="relative h-64">
+                <img src="October2.png" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-8">
+                    <div>
+                        <h2 class="text-4xl font-bold text-white mb-2">October 7th Massacre - Memorial Event</h2>
+                        <p class="text-gray-200">October 2025 • San Francisco</p>
+                    </div>
+                </div>
+                <button onclick="closeModal('modal-8')"
+                    class="absolute top-4 right-4 bg-white/20 hover:bg-white/40 backdrop-blur-md p-2 rounded-full text-white transition">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <div class="p-8">
+                <p class="text-lg text-gray-700 leading-relaxed mb-8">
+                    We gathered as a community to mark the memorial of October 7th, honoring the memory of the
+                    victims
+                    and standing in solidarity with one another. Organized by The Jewish Connection, the evening was
+                    a
+                    solemn opportunity to come together, share in our collective grief, and find strength in unity.
+                    Through stories, songs, and reflection, we reaffirmed our commitment to remember and to support
+                    our
+                    community in Israel and abroad.
+                </p>
+
+                <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center"><i data-lucide="camera"
+                        class="w-5 h-5 mr-2 text-primary"></i> Photo Library</h3>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+                    <img src="October.png" class="rounded-lg shadow-sm hover:shadow-md transition">
+                    <!-- <img src="https://placehold.co/400x300?text=photo"
+                        class="rounded-lg shadow-sm hover:shadow-md transition"> -->
+                </div>
+                <!-- EXTERNAL LINK BUTTON -->
+                <div class="text-center pt-6 border-t border-gray-100">
+                    <a href="https://www.tickettailor.com/events/thejewishconnection/1886267" target="_blank"
+                        class="inline-flex items-center px-8 py-3 bg-primary text-white rounded-lg font-bold shadow-lg hover:bg-indigo-700 transition transform hover:-translate-y-1">
+                        Visit Official Event Page <i data-lucide="external-link" class="ml-2 w-5 h-5"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-gray-500">&copy; 2025 Osher Amira-Marks. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.remove('hidden');
+                // Small delay to allow display:block to apply before opacity transition
+                setTimeout(() => {
+                    modal.classList.add('active');
+                }, 10);
+            }
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.remove('active');
+                // Wait for transition to finish before hiding
+                setTimeout(() => {
+                    modal.classList.add('hidden');
+                }, 300);
+            }
+        }
+    </script>
+</body>
+
+</html>
