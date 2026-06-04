@@ -124,6 +124,8 @@
                 <nav class="flex space-x-4 sm:space-x-8">
                     <a href="index.html"
                         class="text-gray-600 hover:text-primary transition duration-200 font-medium cursor-pointer">Home</a>
+                    <a href="college.html"
+                        class="text-gray-600 hover:text-primary transition duration-200 font-medium cursor-pointer">College</a>
 
                     <a href="#annotations" onclick="showPage('annotations')"
                         class="text-gray-600 hover:text-primary transition duration-200 font-medium cursor-pointer">Annotations
@@ -2523,10 +2525,10 @@
                 <div class="flex space-x-4 border-b border-gray-200 mb-6 mt-4 overflow-x-auto justify-auto">
                     <button
                         class="tab-btn active px-4 py-2 text-gray-600 hover:text-primary focus:outline-none whitespace-nowrap"
-                        onclick="switchEssayTab('essay3', 'draft')">Draft</button>
-                   <button
-                        class="tab-btn px-4 py-2 text-gray-600 hover:text-primary focus:outline-none whitespace-nowrap"
-                        onclick="switchEssayTab('essay3', 'revision')">Revision</button>
+                        onclick="switchEssayTab('essay3', 'draft')">Draft and Notes</button>
+                        <button
+                        class="tab-btn active px-4 py-2 text-gray-600 hover:text-primary focus:outline-none whitespace-nowrap"
+                        onclick="switchEssayTab('essay3', 'final')">Final Essay</button>
                 </div>
                 <!-- 1. DRAFT CONTENT (Added "active" so it shows up) -->
                 <div id="essay3-draft" class="tab-content active">
@@ -2538,7 +2540,7 @@
                         </p>
                     </div>
                     <div class="mb-8 pb-8 border-b border-gray-100 text-center">
-                           <a href="OptionB.pdf" target="_blank"
+                        <a href="OptionB.pdf" target="_blank"
                             class="inline-flex items-center px-6 py-3 border border-transparent text-base font-sans font-medium rounded-lg shadow-md text-white bg-primary hover:bg-indigo-700 transition duration-300 no-underline cursor-pointer">
                             <i data-lucide="file-text" class="w-5 h-5 mr-2"></i> I Chose Option B
                         </a>
@@ -2546,29 +2548,25 @@
                             class="inline-flex items-center px-6 py-3 border border-transparent text-base font-sans font-medium rounded-lg shadow-md text-white bg-primary hover:bg-indigo-700 transition duration-300 no-underline cursor-pointer">
                             <i data-lucide="file-text" class="w-5 h-5 mr-2"></i> Outline
                         </a>
-                           <a href="NotesToSelf.pdf" target="_blank"
+                        <a href="NotesToSelf.pdf" target="_blank"
                             class="inline-flex items-center px-6 py-3 border border-transparent text-base font-sans font-medium rounded-lg shadow-md text-white bg-primary hover:bg-indigo-700 transition duration-300 no-underline cursor-pointer">
                             <i data-lucide="file-text" class="w-5 h-5 mr-2"></i> My Notes
-                        </a>  
+                        </a>
                         <a href="Quotes.pdf" target="_blank"
                             class="inline-flex items-center px-6 py-3 border border-transparent text-base font-sans font-medium rounded-lg shadow-md text-white bg-primary hover:bg-indigo-700 transition duration-300 no-underline cursor-pointer">
                             <i data-lucide="file-text" class="w-5 h-5 mr-2"></i> Quotes I used
                         </a>
-                         <a href="FinalEssay.pdf" target="_blank"
+                    </div>
+                </div>
+                <!-- 2. FINAL ESSAY CONTENT -->
+                <div id="essay3-final" class="tab-content">
+                    <div class="mb-8 pb-8 border-b border-gray-100 text-center">
+                        <a href="FinalEssay.pdf" target="_blank"
                             class="inline-flex items-center px-6 py-3 border border-transparent text-base font-sans font-medium rounded-lg shadow-md text-white bg-primary hover:bg-indigo-700 transition duration-300 no-underline cursor-pointer">
                             <i data-lucide="file-text" class="w-5 h-5 mr-2"></i> View Final Essay
                         </a>
                     </div>
                 </div>
-                <!-- 2. REVISION CONTENT (Added "active" so it shows up) -->
-                <!-- <div id="essay3-revision" class="tab-content">
-                    <div class="mb-2 pb-8 border-b border-gray-100 text-center">
-                        <a href="Peer_review.pdf" target="_blank"
-                            class="inline-flex items-center px-6 py-3 border border-transparent text-base font-sans font-medium rounded-lg shadow-md text-white bg-primary hover:bg-indigo-700 transition duration-300 no-underline cursor-pointer">
-                            <i data-lucide="file-text" class="w-5 h-5 mr-2"></i> View Feedback (PDF)
-                        </a>
-                    </div>
-                </div>-->
             </div>
     </main>
 
