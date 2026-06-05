@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Critical Thinking and Writing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['Merriweather', 'serif'] },
+                    colors: { primary: '#4f46e5', secondary: '#facc15', background: '#f9fafb', 'card-bg': '#ffffff', 'text-dark': '#1f2937' }
+                }
+            }
+        }
+    </script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Merriweather:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        main {
+            flex-grow: 1;
+        }
+
+        body::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        body::-webkit-scrollbar-track {
+            background: #f9fafb;
+        }
+
+        body::-webkit-scrollbar-thumb {
+            background-color: #a5b4fc;
+            border-radius: 20px;
+            border: 2px solid #f9fafb;
+        }
+
+        .page-content {
+            display: none;
+        }
+
+        .tab-btn {
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn.active {
+            border-bottom: 2px solid #4f46e5;
+            color: #4f46e5;
+            font-weight: 600;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .stage-connector {
+            position: relative;
+        }
+
+        .stage-connector::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -2rem;
+            width: 1.5rem;
+            height: 2px;
+            background-color: #a5b4fc;
+            z-index: 0;
+            transform: translateY(-50%);
+        }
+
+        @media (min-width: 768px) {
+            .md\:stage-last::after {
+                content: none;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .stage-connector::after {
+                content: none;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(5px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-background text-text-dark font-sans leading-relaxed">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-2">
+                    <i data-lucide="book-open-text" class="text-primary w-6 h-6"></i>
+                    <span class="text-2xl font-bold text-primary cursor-pointer" onclick="showPage('home')">Critical
+                        Thinking and Writing</span>
+                </div>
+                <nav class="flex space-x-4 sm:space-x-8">
+                    <a href="index.html"
+                        class="text-gray-600 hover:text-primary transition duration-200 font-medium cursor-pointer">Home</a>
+                    <a href="college.html"
+                        class="text-gray-600 hover:text-primary transition duration-200 font-medium cursor-pointer">college</a>
+                    <a href="#annotations" onclick="showPage('annotations')"
+                        class="text-gray-600 hover:text-primary transition duration-200 font-medium cursor-pointer">Annotations
+                        & Documents</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
+        <!-- HOME PAGE -->
+        <div id="home-page" class="page-content space-y-20">
+            <section id="hero" class="pt-10">
+                <div
+                    class="grid grid-cols-1 md:grid-cols-3 gap-10 items-center bg-card-bg p-8 rounded-xl shadow-2xl border border-indigo-100">
+                    <div class="md:col-span-1 flex justify-center">
+                        <img src="oa.png" onerror="this.src='https://placehold.co/200x200/4f46e5/ffffff?text=Osher+A-M'"
+                            alt="Osher Amira-Marks"
+                            class="w-48 h-48 object-cover rounded-full shadow-lg border-4 border-secondary transition transform hover:scale-105 duration-300">
+                    </div>
+                    <div class="md:col-span-2 text-center md:text-left">
+                        <p class="text-sm font-semibold text-primary uppercase tracking-wider mb-2">Student</p>
+                        <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-4 leading-tight">Osher
+                            Amira-Marks</h1>
+                        <p class="text-lg text-gray-600 mb-6"> Welcome to my digital English Critical Thinking
+                            Portfolio! <br> This collection showcases my
+                            development as a reader, writer, and critical thinker throughout the semester. Here you'll
+                            find selected essays, drafts, and some of the papers we worked on</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="projects" class="py-10">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl">My Academic Essays</h2>
+                    <p class="mt-4 text-xl text-gray-600">Click to read the full essay, drafts, and reflections.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-card-bg rounded-xl shadow-xl hover:shadow-2xl transition duration-300 border border-gray-100 group cursor-pointer"
+                        onclick="showPage('essay1')">
+                        <div class="p-6">
+                            <i data-lucide="notebook-pen" class="text-secondary w-8 h-8 mb-4"></i>
+                            <h3
+                                class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-primary transition duration-300">
+                                Summary of In Defence of Prejudice By Jonathan Rauch
+                            </h3>
+                            <p class="text-gray-500 text-sm mb-4">his paper looks at Jonathan Rauch’s argument
+                                that getting rid of all prejudice by enforcing rules is risky and futile. He talks about
+                                intellectual pluralism, which is having an open system where people face down offensive
+                                or prejudiced ideas in debates, not by silencing them with censorship. The main point is
+                                that letting authorities ban offensive speech creates fear, limits learning, and can
+                                lead to a slippery slope of censoring based on what's subjective, harming freedom in
+                                society.</p>
+                            <span class="inline-flex items-center text-primary font-medium hover:underline">View Process
+                                & Final Essay <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i></span>
+                        </div>
+                    </div>
+
+                    <div class="bg-card-bg rounded-xl shadow-xl hover:shadow-2xl transition duration-300 border border-gray-100 group cursor-pointer"
+                        onclick="showPage('essay2')">
+                        <div class="p-6">
+                            <i data-lucide="notebook-pen" class="text-secondary w-8 h-8 mb-4"></i>
+                            <h3
+                                class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-primary transition duration-300">
+                                Stephen J. Gould's Work</h3>
+                            <p class="text-gray-500 text-sm mb-4">This paper looks at Stephen Jay Gould's unique writing
+                                style and how he defends making science more accessible- or what he calls
+                                "vulgarization." He shows how using personal tales and links to culture can fight
+                                against biological determinism and question pure scientific objectivity. While his
+                                cultural tangents might sometimes sidetrack readers, his person-focused method does a
+                                great job of linking hard data with our wider human experience.</p>
+                            <span class="inline-flex items-center text-primary font-medium hover:underline">View Process
+                                & Final Essay <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i></span>
+                        </div>
+                    </div>
+
+                    <div class="bg-card-bg rounded-xl shadow-xl hover:shadow-2xl transition duration-300 border border-gray-100 group cursor-pointer"
+                        onclick="showPage('essay3')">
+                        <div class="p-6">
+                            <i data-lucide="notebook-pen" class="text-secondary w-8 h-8 mb-4"></i>
+                            <h3
+                                class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-primary transition duration-300">
+                                Final Research Paper- From Averages to Atavism: How the Victorian Rejection of Variation
+                                Shaped Early Criminal Profiling</h3>
+                            <p class="text-gray-500 text-sm mb-4">This paper looks at how Victorian science used
+                                numbers, averages, and neat categories to mirror what society wanted, not always
+                                objective truths. It points out how biological determinism was really popular back then,
+                                stating that traits like intelligence and chances of being criminal were set from birth.
+                                In essence, the text claims that Victorians ignored individual differences to hide
+                                social biases under the mask of science.</p>
+                            <span class="inline-flex items-center text-primary font-medium hover:underline">View Process
+                                & Final Essay <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ANNOTATIONS PAGE CONTENT -->
+        <div id="annotations-page" class="page-content pt-10">
+            <div class="bg-card-bg p-8 rounded-xl shadow-2xl border border-indigo-100 max-w-12xl mx-auto">
+                <!-- Page Header -->
+                <div class="flex items-center justify-between mb-8 border-b border-gray-100 pb-6">
+                    <div class="flex items-center">
+                        <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                            <i data-lucide="highlighter" class="text-primary w-8 h-8"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-3xl font-bold text-gray-900">Annotations & Documents</h2>
+                            <p class="text-gray-500">Annotated Texts and Visual Analysis Tools
+                            </p>
+                        </div>
+                    </div>
+                    <button onclick="showPage('home')"
+                        class="text-gray-400 hover:text-gray-600 transition duration-200">
+                        <i data-lucide="x" class="w-8 h-8"></i>
+                    </button>
+                </div>
+                <!-- Documents Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Document Card 1 -->
+                    <div
+                        class="group border border-gray-200 rounded-xl p-6 hover:shadow-xl transition duration-300 bg-white flex flex-col h-full relative overflow-hidden">
+                        <div
+                            class="absolute top-0 right-0 bg-secondary w-16 h-16 transform rotate-45 translate-x-8 -translate-y-8 opacity-20 group-hover:opacity-40 transition">
+                        </div>
+                        <div class="flex items-start justify-between mb-4">
+                            <i data-lucide="file-text" class="text-primary w-10 h-10"></i>
+                            <span
+                                class="text-xs font-bold uppercase tracking-wider text-gray-400 border border-gray-200 px-2 py-1 rounded-md">PDF</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-0 group-hover:text-primary transition">A
+                            Biological Homage to Mickey Mouse</h3>
+                        <h3 class="text-m font-bold text-gray-900 mb-1 group-hover:text-primary transition">Stephen Jay
+                            Gould
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-6 flex-grow">
+                            This paper explains how Mickey Mouse’s physical juvenilization mimics human evolution
+                            through the retention of childlike traits.
+                        </p>
+                        <a href="A Biological Homage to Micky Mouse.pdf" target="_blank"
+                            class="inline-flex items-center justify-center w-full px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-primary bg-indigo-50 hover:bg-primary hover:text-white transition duration-300">
+                            View Document <i data-lucide="external-link" class="w-4 h-4 ml-2"></i>
+                        </a>
+                    </div>
+                    <!-- Document Card 2 -->
+                    <div
+                        class="group border border-gray-200 rounded-xl p-6 hover:shadow-xl transition duration-300 bg-white flex flex-col h-full relative overflow-hidden">
+                        <div
+                            class="absolute top-0 right-0 bg-secondary w-16 h-16 transform rotate-45 translate-x-8 -translate-y-8 opacity-20 group-hover:opacity-40 transition">
+                        </div>
+                        <div class="flex items-start justify-between mb-4">
+                            <i data-lucide="file-text" class="text-primary w-10 h-10"></i>
+                            <span
+                                class="text-xs font-bold uppercase tracking-wider text-gray-400 border border-gray-200 px-2 py-1 rounded-md">PDF</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-0 group-hover:text-primary transition"> From: A
+                            Rhetoric Argument</h3>
+                        <h3 class="text-m font-bold text-gray-900 mb-1 group-hover:text-primary transition">Stephen
+                            Toulmin
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-6 flex-grow">
+                            This text details how to build persuasive arguments by expanding basic structures with
+                            qualifiers, warrants, and counterarguments.
+                        </p>
+                        <a href="A Rhetoric Argument pages 27-37 and pages 41-44.pdf" target="_blank"
+                            class="inline-flex items-center justify-center w-full px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-primary bg-indigo-50 hover:bg-primary hover:text-white transition duration-300">
+                            View Document <i data-lucide="external-link" class="w-4 h-4 ml-2"></i>
+                        </a>
+                    </div>
+                    <!-- Document Card 3 -->
+                    <div
+                        class="group border border-gray-200 rounded-xl p-6 hover:shadow-xl transition duration-300 bg-white flex flex-col h-full relative overflow-hidden">
+                        <div
+                            class="absolute top-0 right-0 bg-secondary w-16 h-16 transform rotate-45 translate-x-8 -translate-y-8 opacity-20 group-hover:opacity-40 transition">
+                        </div>
+                        <div class="flex items-start justify-between mb-4">
+                            <i data-lucide="file-text" class="text-primary w-10 h-10"></i>
+                            <span
+                                class="text-xs font-bold uppercase tracking-wider text-gray-400 border border-gray-200 px-2 py-1 rounded-md">PDF</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-0 group-hover:text-primary transition">From:
+                            Modern American Prose</h3>
+                        <h3 class="text-m font-bold text-gray-900 mb-1 group-hover:text-primary transition">Stephen Jay
+                            Gould
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-6 flex-grow">
+                            This paper exposes how a Victorian biography covered up naturalist Louis Agassiz's visceral,
+                            non-scientific racial prejudices to mimic scientific objectivity.
+                        </p>
+                        <a href="Modern American Prose pages 215-222.pdf" target="_blank"
+                            class="inline-flex items-center justify-center w-full px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-primary bg-indigo-50 hover:bg-primary hover:text-white transition duration-300">
+                            View Document <i data-lucide="external-link" class="w-4 h-4 ml-2"></i>
+                        </a>
+                    </div>
+                    <!-- Document Card 4 -->
+                    <div
+                        class="group border border-gray-200 rounded-xl p-6 hover:shadow-xl transition duration-300 bg-white flex flex-col h-full relative overflow-hidden">
+                        <div
+                            class="absolute top-0 right-0 bg-secondary w-16 h-16 transform rotate-45 translate-x-8 -translate-y-8 opacity-20 group-hover:opacity-40 transition">
+                        </div>
+                        <div class="flex items-start justify-between mb-4">
+                            <i data-lucide="file-text" class="text-primary w-10 h-10"></i>
+                            <span
+                                class="text-xs font-bold uppercase tracking-wider text-gray-400 border border-gray-200 px-2 py-1 rounded-md">PDF</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-0 group-hover:text-primary transition">From:
+                            Modern American Prose</h3>
+                        <h3 class="text-m font-bold text-gray-900 mb-1 group-hover:text-primary transition">DStephen Jay
+                            Gould
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-6 flex-grow">
+                            This paper reexamines 19th-century skull data, showing how researchers misused biased
+                            statistics to falsely claim women's intellectual inferiority.
+                        </p>
+                        <a href="Modern American Prose pages 223-230.pdf" target="_blank"
+                            class="inline-flex items-center justify-center w-full px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-primary bg-indigo-50 hover:bg-primary hover:text-white transition duration-300">
+                            View Document <i data-lucide="external-link" class="w-4 h-4 ml-2"></i>
+                        </a>
+                    </div>
+                    <!-- Document Card 5 -->
+                    <div
+                        class="group border border-gray-200 rounded-xl p-6 hover:shadow-xl transition duration-300 bg-white flex flex-col h-full relative overflow-hidden">
+                        <div
+                            class="absolute top-0 right-0 bg-secondary w-16 h-16 transform rotate-45 translate-x-8 -translate-y-8 opacity-20 group-hover:opacity-40 transition">
+                        </div>
+                        <div class="flex items-start justify-between mb-4">
+                            <i data-lucide="file-text" class="text-primary w-10 h-10"></i>
+                            <span
+                                class="text-xs font-bold uppercase tracking-wider text-gray-400 border border-gray-200 px-2 py-1 rounded-md">PDF</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-0 group-hover:text-primary transition">From:
+                            Modern American Prose</h3>
+                        <h3 class="text-m font-bold text-gray-900 mb-1 group-hover:text-primary transition">Stephen Jay
+                            Gould
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-6 flex-grow">
+                            This paper refutes creationist attacks by defining evolution as both a well-supported
+                            biological fact and an adapting scientific theory.
+                        </p>
+                        <a href="Modern American Prose pages 231-239.pdf" target="_blank"
+                            class="inline-flex items-center justify-center w-full px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-primary bg-indigo-50 hover:bg-primary hover:text-white transition duration-300">
+                            View Document <i data-lucide="external-link" class="w-4 h-4 ml-2"></i>
+                        </a>
+                    </div>
+                    <!-- Document Card 6 -->
+                    <div
+                        class="group border border-gray-200 rounded-xl p-6 hover:shadow-xl transition duration-300 bg-white flex flex-col h-full relative overflow-hidden">
+                        <div
+                            class="absolute top-0 right-0 bg-secondary w-16 h-16 transform rotate-45 translate-x-8 -translate-y-8 opacity-20 group-hover:opacity-40 transition">
+                        </div>
+                        <div class="flex items-start justify-between mb-4">
+                            <i data-lucide="file-text" class="text-primary w-10 h-10"></i>
+                            <span
+                                class="text-xs font-bold uppercase tracking-wider text-gray-400 border border-gray-200 px-2 py-1 rounded-md">PDF</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-0 group-hover:text-primary transition">The
+                            Godgather of Sexist Pseudosciense.pdf</h3>
+                        <h3 class="text-m font-bold text-gray-900 mb-1 group-hover:text-primary transition">Stephanie Newman
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-6 flex-grow">
+                            This article examines how 19th-century sexist craniometry echoes in modern, pseudoscientific arguments promoting gender-segregated classrooms.
+                        </p>
+                        <a href="The Godgather of Sexist Pseudosciense.pdf" target="_blank"
+                            class="inline-flex items-center justify-center w-full px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-primary bg-indigo-50 hover:bg-primary hover:text-white transition duration-300">
+                            View Document <i data-lucide="external-link" class="w-4 h-4 ml-2"></i>
+                        </a>
+                    </div>
+                    <!-- Document Card 7 -->
+                    <div
+                        class="group border border-gray-200 rounded-xl p-6 hover:shadow-xl transition duration-300 bg-white flex flex-col h-full relative overflow-hidden">
+                        <div
+                            class="absolute top-0 right-0 bg-secondary w-16 h-16 transform rotate-45 translate-x-8 -translate-y-8 opacity-20 group-hover:opacity-40 transition">
+                        </div>
+                        <div class="flex items-start justify-between mb-4">
+                            <i data-lucide="file-text" class="text-primary w-10 h-10"></i>
+                            <span
+                                class="text-xs font-bold uppercase tracking-wider text-gray-400 border border-gray-200 px-2 py-1 rounded-md">PDF</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-0 group-hover:text-primary transition">The Median Isn't the Message</h3>
+                        <h3 class="text-m font-bold text-gray-900 mb-1 group-hover:text-primary transition">Stephen Jay Gould
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-6 flex-grow">
+                            This essay recounts how the author used his scientific understanding of statistical variation to find hope and survive an incurable cancer diagnosis.
+                        </p>
+                        <a href="The median isn't the message.pdf" target="_blank"
+                            class="inline-flex items-center justify-center w-full px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-primary bg-indigo-50 hover:bg-primary hover:text-white transition duration-300">
+                            View Document <i data-lucide="external-link" class="w-4 h-4 ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- ESSAY 1 PAGE -->
+        <div id="essay1-page" class="page-content pt-10">
+            <div class="bg-card-bg p-8 rounded-xl shadow-2xl border border-indigo-100 max-w-5xl mx-auto">
+                <a href="#home" onclick="showPage('home')"
+                    class="text-primary hover:underline mb-4 inline-flex items-center cursor-pointer"><i
+                        data-lucide="chevron-left" class="w-4 h-4 mr-1"></i> Back to All Projects</a>
+                <h2 class="text-4xl font-extrabold text-primary mb-2">Summary of In Defence of Prejudice By
+                    Jonathan
+                    Rauch
+                </h2>
+                <!-- TAB NAVIGATION -->
+                <div class="flex space-x-4 border-b border-gray-200 mb-6 mt-4 overflow-x-auto">
+                    <button
+                        class="tab-btn active px-4 py-2 text-gray-600 hover:text-primary focus:outline-none whitespace-nowrap"
+                        onclick="switchEssayTab('essay1', 'draft')">Draft</button>
+                    <button
+                        class="tab-btn px-4 py-2 text-gray-600 hover:text-primary focus:outline-none whitespace-nowrap"
+                        onclick="switchEssayTab('essay1', 'final')">Final Work</button>
+                </div>
+                <!-- 1. DRAFT CONTENT -->
+                <div id="essay1-draft" class="tab-content">
+                    <div class="mb-8 pb-8 border-b border-gray-100 text-center">
+                        <a href="draftJonathanRauch.pdf" target="_blank"
+                            class="inline-flex items-center px-6 py-3 border border-transparent text-base font-sans font-medium rounded-lg shadow-md text-white bg-primary hover:bg-indigo-700 transition duration-300 no-underline cursor-pointer">
+                            <i data-lucide="file-text" class="w-5 h-5 mr-2"></i> View Draft
+                        </a>
+                    </div>
+                </div>
+                <!-- 2. FINAL DRAFT CONTENT -->
+                <div id="essay1-final" class="tab-content">
+                    <div class="mb-8 pb-8 border-b border-gray-100 text-center">
+                        <a href="finalJonathanRauch.pdf" target="_blank"
+                            class="inline-flex items-center px-6 py-3 border border-transparent text-base font-sans font-medium rounded-lg shadow-md text-white bg-primary hover:bg-indigo-700 transition duration-300 no-underline cursor-pointer">
+                            <i data-lucide="file-text" class="w-5 h-5 mr-2"></i> View Final Essay
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ESSAY 2 PAGE -->
+        <div id="essay2-page" class="page-content pt-10">
+            <div class="bg-card-bg p-8 rounded-xl shadow-2xl border border-indigo-100 max-w-5xl mx-auto">
+                <a href="#home" onclick="showPage('home')"
+                    class="text-primary hover:underline mb-4 inline-flex items-center cursor-pointer"><i
+                        data-lucide="chevron-left" class="w-4 h-4 mr-1"></i> Back to All Projects</a>
+                <h2 class="text-4xl font-extrabold text-primary mb-2">Stephen J. Gould's Work
+                </h2>
+                <!-- TAB NAVIGATION -->
+                <div class="flex space-x-4 border-b border-gray-200 mb-6 mt-4 overflow-x-auto">
+                    <button
+                        class="tab-btn active px-4 py-2 text-gray-600 hover:text-primary focus:outline-none whitespace-nowrap"
+                        onclick="switchEssayTab('essay2', 'draft')">Draft</button>
+                    <button
+                        class="tab-btn px-4 py-2 text-gray-600 hover:text-primary focus:outline-none whitespace-nowrap"
+                        onclick="switchEssayTab('essay2', 'final')">Final Work</button>
+                </div>
+                <!-- 1. DRAFT CONTENT -->
+                <div id="essay2-draft" class="tab-content">
+                    <div class="mb-8 pb-8 border-b border-gray-100 text-center">
+                        <a href="draftGouldsWork.pdf" target="_blank"
+                            class="inline-flex items-center px-6 py-3 border border-transparent text-base font-sans font-medium rounded-lg shadow-md text-white bg-primary hover:bg-indigo-700 transition duration-300 no-underline cursor-pointer">
+                            <i data-lucide="file-text" class="w-5 h-5 mr-2"></i> View Draft
+                        </a>
+                    </div>
+                </div>
+                <!-- 2. FINAL DRAFT CONTENT -->
+                <div id="essay2-final" class="tab-content">
+                    <div class="mb-8 pb-8 border-b border-gray-100 text-center">
+                        <a href="finalGouldsWork.pdf" target="_blank"
+                            class="inline-flex items-center px-6 py-3 border border-transparent text-base font-sans font-medium rounded-lg shadow-md text-white bg-primary hover:bg-indigo-700 transition duration-300 no-underline cursor-pointer">
+                            <i data-lucide="file-text" class="w-5 h-5 mr-2"></i> View Final Essay
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ESSAY 3 PAGE -->
+        <div id="essay3-page" class="page-content pt-10">
+            <div class="bg-card-bg p-8 rounded-xl shadow-2xl border border-indigo-100 max-w-5xl mx-auto">
+                <a href="#home" onclick="showPage('home')"
+                    class="text-primary hover:underline mb-4 inline-flex items-center cursor-pointer"><i
+                        data-lucide="chevron-left" class="w-4 h-4 mr-1"></i> Back to All Projects</a>
+                <h2 class="text-4xl font-extrabold text-primary mb-2">Final Research Paper- From Averages to
+                    Atavism:
+                    How the Victorian Rejection of Variation Shaped Early Criminal Profiling
+                </h2>
+                <!-- TAB NAVIGATION -->
+                <div class="flex space-x-4 border-b border-gray-200 mb-6 mt-4 overflow-x-auto">
+                    <button
+                        class="tab-btn active px-4 py-2 text-gray-600 hover:text-primary focus:outline-none whitespace-nowrap"
+                        onclick="switchEssayTab('essay3', 'draft')">Draft</button>
+                    <button
+                        class="tab-btn px-4 py-2 text-gray-600 hover:text-primary focus:outline-none whitespace-nowrap"
+                        onclick="switchEssayTab('essay3', 'final')">Final Work</button>
+                </div>
+                <!-- 1. DRAFT CONTENT -->
+                <div id="essay3-draft" class="tab-content">
+                    <div class="mb-8 pb-8 border-b border-gray-100 text-center">
+                        <a href="draftFinal.pdf" target="_blank"
+                            class="inline-flex items-center px-6 py-3 border border-transparent text-base font-sans font-medium rounded-lg shadow-md text-white bg-primary hover:bg-indigo-700 transition duration-300 no-underline cursor-pointer">
+                            <i data-lucide="file-text" class="w-5 h-5 mr-2"></i> View Draft
+                        </a>
+                    </div>
+                </div>
+                <!-- 2. FINAL DRAFT CONTENT -->
+                <div id="essay3-final" class="tab-content">
+                    <div class="mb-8 pb-8 border-b border-gray-100 text-center">
+                        <a href="finalFinal.pdf" target="_blank"
+                            class="inline-flex items-center px-6 py-3 border border-transparent text-base font-sans font-medium rounded-lg shadow-md text-white bg-primary hover:bg-indigo-700 transition duration-300 no-underline cursor-pointer">
+                            <i data-lucide="file-text" class="w-5 h-5 mr-2"></i> View Final Essay
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white mt-12 w-full">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center">
+            <p class="text-sm">&copy; 2025 Osher Amira-Marks. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        function showPage(pageId) {
+            document.querySelectorAll('.page-content').forEach(p => p.style.display = 'none');
+            const target = document.getElementById(pageId + '-page');
+            if (target) { target.style.display = 'block'; window.scrollTo({ top: 0, behavior: 'smooth' }); lucide.createIcons(); }
+        }
+        function switchEssayTab(essayId, tabName) {
+            const container = document.getElementById(essayId + '-page');
+            container.querySelectorAll('.tab-content').forEach(c => { c.classList.remove('active'); c.style.display = 'none'; });
+            container.querySelectorAll('.tab-btn').forEach(b => { b.classList.remove('active', 'text-primary'); b.classList.add('text-gray-600'); });
+            const content = document.getElementById(essayId + '-' + tabName);
+            if (content) { content.classList.add('active'); content.style.display = 'block'; }
+            if (event && event.target) {
+                const clickedBtn = event.target.closest('button');
+                clickedBtn.classList.add('active', 'text-primary');
+                clickedBtn.classList.remove('text-gray-600');
+            }
+        }
+        window.onload = function () { lucide.createIcons(); showPage('home'); };
+    </script>
+</body>
+
+</html>
