@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concepts of Criminal Law</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['Merriweather', 'serif'] },
+                    colors: { primary: '#4f46e5', secondary: '#facc15', background: '#f9fafb', 'card-bg': '#ffffff', 'text-dark': '#1f2937' }
+                }
+            }
+        }
+    </script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Merriweather:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        main {
+            flex-grow: 1;
+        }
+
+        body::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        body::-webkit-scrollbar-track {
+            background: #f9fafb;
+        }
+
+        body::-webkit-scrollbar-thumb {
+            background-color: #a5b4fc;
+            border-radius: 20px;
+            border: 2px solid #f9fafb;
+        }
+
+        .page-content {
+            display: none;
+        }
+
+        .tab-btn {
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn.active {
+            border-bottom: 2px solid #4f46e5;
+            color: #4f46e5;
+            font-weight: 600;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .stage-connector {
+            position: relative;
+        }
+
+        .stage-connector::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -2rem;
+            width: 1.5rem;
+            height: 2px;
+            background-color: #a5b4fc;
+            z-index: 0;
+            transform: translateY(-50%);
+        }
+
+        @media (min-width: 768px) {
+            .md\:stage-last::after {
+                content: none;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .stage-connector::after {
+                content: none;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(5px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-background text-text-dark font-sans leading-relaxed">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-2">
+                    <i data-lucide="book-open-text" class="text-primary w-6 h-6"></i>
+                    <span class="text-2xl font-bold text-primary cursor-pointer" onclick="showPage('home')">Concepts of
+                        Criminal Law</span>
+                </div>
+                <nav class="flex space-x-4 sm:space-x-8">
+                    <a href="index.html"
+                        class="text-gray-600 hover:text-primary transition duration-200 font-medium cursor-pointer">Home</a>
+                    <a href="college.html"
+                        class="text-gray-600 hover:text-primary transition duration-200 font-medium cursor-pointer">college</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
+        <!-- HOME PAGE -->
+        <div id="home-page" class="page-content space-y-20">
+            <section id="hero" class="pt-10">
+                <div
+                    class="grid grid-cols-1 md:grid-cols-3 gap-10 items-center bg-card-bg p-8 rounded-xl shadow-2xl border border-indigo-100">
+                    <div class="md:col-span-1 flex justify-center">
+                        <img src="oa.png" onerror="this.src='https://placehold.co/200x200/4f46e5/ffffff?text=Osher+A-M'"
+                            alt="Osher Amira-Marks"
+                            class="w-48 h-48 object-cover rounded-full shadow-lg border-4 border-secondary transition transform hover:scale-105 duration-300">
+                    </div>
+                    <div class="md:col-span-2 text-center md:text-left">
+                        <p class="text-sm font-semibold text-primary uppercase tracking-wider mb-2">Student</p>
+                        <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-4 leading-tight">Osher
+                            Amira-Marks</h1>
+                        <p class="text-lg text-gray-600 mb-6"> Welcome to my digital Concepts of Criminal Law
+                            Portfolio! </p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="projects" class="py-10">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl">My Academic Work</h2>
+                    <p class="mt-4 text-xl text-gray-600">Click to read the full essay, drafts, and reflections.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-card-bg rounded-xl shadow-xl hover:shadow-2xl transition duration-300 border border-gray-100 group cursor-pointer"
+                        onclick="showPage('essay1')">
+                        <div class="p-6">
+                            <i data-lucide="notebook-pen" class="text-secondary w-8 h-8 mb-4"></i>
+                            <h3
+                                class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-primary transition duration-300">
+                                Why the Innocence Project is Essential to Modern Justice
+                            </h3>
+                            <p class="text-gray-500 text-sm mb-4">The aim of this paper is to examine the role played by
+                                the Innocence Project in releasing wrongfully imprisoned people from jail through
+                                post-conviction DNA testing and legislation. It will be done by looking at how the
+                                Innocence Project exposes judicial failures within the criminal justice system like
+                                flawed eyewitness accounts, racism, and debunked forensics.</p>
+                            <span class="inline-flex items-center text-primary font-medium hover:underline">View Final
+                                Work <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i></span>
+                        </div>
+                    </div>
+            </section>
+        </div>
+
+        <!-- ESSAY 1 PAGE -->
+        <div id="essay1-page" class="page-content pt-10">
+            <div class="bg-card-bg p-8 rounded-xl shadow-2xl border border-indigo-100 max-w-5xl mx-auto">
+                <a href="#home" onclick="showPage('home')"
+                    class="text-primary hover:underline mb-4 inline-flex items-center cursor-pointer"><i
+                        data-lucide="chevron-left" class="w-4 h-4 mr-1"></i> Back to All Projects</a>
+                <h2 class="text-4xl font-extrabold text-primary mb-2">Summary of In Defence of Prejudice By
+                    Jonathan
+                    Rauch
+                </h2>
+                <!-- TAB NAVIGATION -->
+                <div class="flex space-x-4 border-b border-gray-200 mb-6 mt-4 overflow-x-auto">
+                    <button
+                        class="tab-btn active px-4 py-2 text-gray-600 hover:text-primary focus:outline-none whitespace-nowrap"
+                        onclick="switchEssayTab('essay1', 'final')">Final Work</button>
+                </div>
+
+                <!-- 1. FINAL DRAFT CONTENT -->
+                <div id="essay1-final" class="tab-content">
+                    <div class="mb-8 pb-8 border-b border-gray-100 text-center">
+                        <a href="Why the Innocence Project is Essential to Modern Justice.pdf" target="_blank"
+                            class="inline-flex items-center px-6 py-3 border border-transparent text-base font-sans font-medium rounded-lg shadow-md text-white bg-primary hover:bg-indigo-700 transition duration-300 no-underline cursor-pointer">
+                            <i data-lucide="file-text" class="w-5 h-5 mr-2"></i> View Final Essay
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white mt-12 w-full">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center">
+            <p class="text-sm">&copy; 2025 Osher Amira-Marks. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        function showPage(pageId) {
+            document.querySelectorAll('.page-content').forEach(p => p.style.display = 'none');
+            const target = document.getElementById(pageId + '-page');
+            if (target) { target.style.display = 'block'; window.scrollTo({ top: 0, behavior: 'smooth' }); lucide.createIcons(); }
+        }
+        function switchEssayTab(essayId, tabName) {
+            const container = document.getElementById(essayId + '-page');
+            container.querySelectorAll('.tab-content').forEach(c => { c.classList.remove('active'); c.style.display = 'none'; });
+            container.querySelectorAll('.tab-btn').forEach(b => { b.classList.remove('active', 'text-primary'); b.classList.add('text-gray-600'); });
+            const content = document.getElementById(essayId + '-' + tabName);
+            if (content) { content.classList.add('active'); content.style.display = 'block'; }
+            if (event && event.target) {
+                const clickedBtn = event.target.closest('button');
+                clickedBtn.classList.add('active', 'text-primary');
+                clickedBtn.classList.remove('text-gray-600');
+            }
+        }
+        window.onload = function () { lucide.createIcons(); showPage('home'); };
+    </script>
+</body>
+
+</html>
